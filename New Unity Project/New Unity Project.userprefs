@@ -1,0 +1,44 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ChartLoader/Example/ExampleLoadingScript.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Note1.cs" Line="18" Column="32" />
+      <File FileName="Assets/COSCAN.cs" Line="1" Column="1" />
+      <File FileName="Assets/LeanTouch/Examples/Scripts/LeanFingerDown.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SLC2.cs" Line="1" Column="1" />
+      <File FileName="Assets/LeanTouch/Examples/Scripts/LeanFingerHeld.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ChartLoader/Example/ExampleLoadingScript.cs" Line="103" Column="33" />
+      <File FileName="Assets/Scripts/Slidenoteburst.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/currentscore.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/notecheck.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/latenotecheck.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/deletthis.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/missnotecheck.cs" Line="1" Column="1" />
+      <File FileName="Assets/LeanTouch/Scripts/LeanFinger.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/notecontrol.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GM.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/deactivatediff.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/deactivatebg.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/prefabat.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/backtofixed.cs" Line="1" Column="1" />
+      <File FileName="Assets/ADL-Plugins/zipTest/Scripts/testZip.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/loadGUI.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ChartLoader/ChartLoader.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CanclickOG.cs" Line="1" Column="1" />
+      <File FileName="Assets/Plugins/Quick/Editor/Classes/QEditor.cs" Line="1" Column="1" />
+      <File FileName="Assets/Android Native Audio/Scripts/ANAMusic.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/songnamechange.cs" Line="1" Column="1" />
+      <File FileName="Assets/OpenURL.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/dontdestroyspecial.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/changedifimage2.cs" Line="1" Column="1" />
+      <File FileName="Assets/chanthis.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SETSELECTIONACTIVE.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/manageresult.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

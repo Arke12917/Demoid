@@ -1,0 +1,42 @@
+Android Native Audio
+by Christopher Stanley
+support@ChristopherCreates.com
+
+2.0.1
+2016-11-28
+Restored missing JAR file for OGG support
+
+2.0.0
+2016-06-05
+Added ANAMusic for playing long audio files and playing while the app is in the background
+Added loading callback
+Added AndroidNativeAudio.makePool() default to 16 streams
+Added new example scenes
+Added Windows adb logcat batch file
+Updated documentation
+
+1.3.1
+2016-04-07
+Renamed "sound" to "file" to ease confusion with "stream"
+
+1.3.0
+2016-02-03
+Added inline documentation for IDEs
+Updated documentation
+
+1.2.0
+2015-10-17
+Added a load option for using Application.persistentDataPath
+Changed DEBUG from const to variable to remove unreachable code warnings
+Updated documentation
+
+1.1.0
+2015-06-08
+Added support for split application binaries (APK + OBB files)
+Added non-Android AudioSource option to PlayMaker Play action
+Zipped PlayMaker files to prevent errors for non-PlayMaker users
+Updated documentation
+
+1.0.0
+2015-04-23
+Initial release
