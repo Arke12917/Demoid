@@ -4,16 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ACcontroller : MonoBehaviour {
-
+	public Text TEXt;
 	// Use this for initialization
 	void Start () {
-		
+		TEXt = this.gameObject.GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		GetComponent<Text> ().text = notecontrol.AllCharming + "";
+		TEXt.text = notecontrol.AllCharming + "";
 		
 	}
 }

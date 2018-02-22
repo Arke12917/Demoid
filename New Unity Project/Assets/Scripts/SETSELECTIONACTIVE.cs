@@ -63,6 +63,18 @@ public class SETSELECTIONACTIVE : MonoBehaviour {
 			} 
 		}
 		inactiveObject.SetActive (false);
+		}else if (level == 5||level==6) {
+		Destroy(GameObject.FindGameObjectWithTag ("Scoreobject"));
+		
+		GameObject[] godd = GameObject.FindObjectsOfType(typeof(GameObject)) as GameObject[]; //will return an array of all GameObjects in the scene
+		foreach(GameObject go in godd)
+		{
+			if(go.layer==10){
+
+				go.transform.SetParent(holdempty);
+			} 
+		}
+		inactiveObject.SetActive (false);
 	}
 }
 

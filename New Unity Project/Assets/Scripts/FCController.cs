@@ -4,16 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class FCController : MonoBehaviour {
-
+	public Text TEXT;
 	// Use this for initialization
 	void Start () {
-		
+		TEXT = this.gameObject.GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		GetComponent<Text> ().text = notecontrol.FullCombo + "";
+		TEXT.text = notecontrol.FullCombo + "";
 		
 	}
 }

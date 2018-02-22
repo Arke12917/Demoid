@@ -16,6 +16,8 @@ public class COSCAN : MonoBehaviour {
 
 		public string scene;
 		public string scene169;
+		public string Calibration="Calibration";
+		public string Calibration169="Calibration 169";
 		public Color loadToColor = Color.black;
 	// Use this for initialization
 	void Awake () {
@@ -45,31 +47,12 @@ public class COSCAN : MonoBehaviour {
 			}else if (Time.fixedDeltaTime == 0.015f) {
 				Time.fixedDeltaTime = 0.02f;
 				GM.CFT = Time.fixedDeltaTime;
-			} else if (Time.fixedDeltaTime == 0.02f) {
-				Time.fixedDeltaTime = 0.03f;
-				GM.CFT = Time.fixedDeltaTime;
-			} else if (Time.fixedDeltaTime == 0.03f) {
-				Time.fixedDeltaTime = 0.04f;
-				GM.CFT = Time.fixedDeltaTime;
-			} else if (Time.fixedDeltaTime == 0.04f) {
-				Time.fixedDeltaTime = 0.05f;
-				GM.CFT = Time.fixedDeltaTime;
-			} else if (Time.fixedDeltaTime == 0.05f) {
 			} else {
 			}
 				
 		}
-		public void fixdown(){
-			if (Time.fixedDeltaTime == 0.05f) {
-				Time.fixedDeltaTime = 0.04f;
-				GM.CFT = Time.fixedDeltaTime;
-			} else if (Time.fixedDeltaTime == 0.04f) {
-				Time.fixedDeltaTime = 0.03f;
-				GM.CFT = Time.fixedDeltaTime;
-			} else if (Time.fixedDeltaTime == 0.03f) {
-				Time.fixedDeltaTime = 0.02f;
-				GM.CFT = Time.fixedDeltaTime;
-			} else if (Time.fixedDeltaTime == 0.02f) {
+	public void fixdown(){
+			if (Time.fixedDeltaTime == 0.02f) {
 				Time.fixedDeltaTime = 0.015f;
 				GM.CFT = Time.fixedDeltaTime;
 			} else if (Time.fixedDeltaTime == 0.015f) {
@@ -77,8 +60,8 @@ public class COSCAN : MonoBehaviour {
 				GM.CFT = Time.fixedDeltaTime;
 			}  else if (Time.fixedDeltaTime == 0.01f) {
 		} else {
-			}
 		}
+	}
 		public void fixactive(){
 			Fixedd.SetActive (true);
 		}
@@ -120,5 +103,31 @@ public class COSCAN : MonoBehaviour {
 		}
 
 	}
+		public void LoadCalibrate(){
+			float conheight = float.Parse(height);
+			float conwidth = float.Parse(width);
+			print (conheight);
+			print (conwidth);
+			print ((conwidth*1.0)/conheight);
+			ZPlayerPrefs.Initialize("what'sYourName", "salt12issalt");
+			ZPlayerPrefs.SetFloat("Speed", GM.currentSpeed);
+			ZPlayerPrefs.Save ();
+			GameObject.FindGameObjectWithTag ("Credits").GetComponent<SongBK> ().count = 2;
+			GameObject.FindGameObjectWithTag ("YEABOI").tag="BOIYEA";
+			if ((conwidth*1.0)/conheight >= 1.7f||(conwidth*1.0)/conheight>=2.05f) {
+				//16:9
+				//18:9
+				print ("yah");
+				Time.timeScale = 1;
+				Initiate.Fade(Calibration169,loadToColor,0.5f);
+				//Application.LoadLevel (4);
+			} else {
+				Time.timeScale = 1;
+				Initiate.Fade(Calibration,loadToColor,0.5f);
+				//Application.LoadLevel (2);
+			}
+
+		}
+	}
 }
-}
+

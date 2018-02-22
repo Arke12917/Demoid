@@ -42,7 +42,7 @@ public class SongBK : MonoBehaviour {
 					GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().StartCoroutine ("SNG");
 					StartCoroutine (startsongs ());
 				}
-			} else if (level == 2 || level == 4) {
+			} else if (level == 2 || level == 4||level==5||level==6) {
 				
 				
 		}

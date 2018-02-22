@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SlideCharmFixed : MonoBehaviour {
 	bool started = true;
@@ -93,7 +94,10 @@ public class SlideCharmFixed : MonoBehaviour {
 	}
 }
 	IEnumerator Starto(){
-		yield return new WaitUntil(GameObject.FindGameObjectWithTag("mainchrt").GetComponent<ExampleLoadingScript>().readytoplaymusic);
+		if (SceneManager.GetActiveScene ().name == "Calibration" || SceneManager.GetActiveScene ().name == "Calibration 169") {
+		} else {
+			yield return new WaitUntil (GameObject.FindGameObjectWithTag ("mainchrt").GetComponent<ExampleLoadingScript> ().readytoplaymusic);
+		}
 		charmingintt=100.0f/GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().exChartcombo;
 		normintt = charmingintt / 2f;
 		Debug.Log (normintt);

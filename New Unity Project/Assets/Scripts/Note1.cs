@@ -13,7 +13,7 @@ public class Note1 : MonoBehaviour {
 	public static float speed=10;
 
 	void Awake(){
-		rb = GetComponent<Rigidbody> ();
+		//rb = GetComponent<Rigidbody> ();
 	}
 	// Use this for initialization
 	void Start () {
@@ -28,7 +28,7 @@ public class Note1 : MonoBehaviour {
 		} else {
 			speed = speed4;
 		}
-		rb.velocity=new Vector2(0,-speed);
+		//rb.velocity=new Vector2(0,-speed);
 
 	}
 	

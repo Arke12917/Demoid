@@ -37,9 +37,9 @@ public class GM : MonoBehaviour {
 	void Awake() {
 		Application.targetFrameRate = 120;
 		if (Application.platform == RuntimePlatform.IPhonePlayer) {
-			Time.fixedDeltaTime = 0.015f;
+			Time.fixedDeltaTime = 0.01f;
 		} else if (Application.platform == RuntimePlatform.Android) {
-			Time.fixedDeltaTime = 0.02f;
+			Time.fixedDeltaTime = 0.01f;
 		}
 		ZPlayerPrefs.Initialize("what'sYourName", "salt12issalt");
 		if (ZPlayerPrefs.HasKey ("Speed")) {
@@ -52,12 +52,29 @@ public class GM : MonoBehaviour {
 		}
 		ZPlayerPrefs.Initialize("what'sYourName", "salt12issalt");
 		if (ZPlayerPrefs.HasKey ("FixTime")) {
-			Time.fixedDeltaTime = ZPlayerPrefs.GetFloat ("FixTime");
-			CFT = Time.fixedDeltaTime;
-			ZPlayerPrefs.Save ();
+			if (ZPlayerPrefs.GetFloat ("FixTime") < 0.02f) {
+				Time.fixedDeltaTime = ZPlayerPrefs.GetFloat ("FixTime");
+				CFT = Time.fixedDeltaTime;
+				ZPlayerPrefs.Save ();
+			} else {
+				ZPlayerPrefs.SetFloat("FixTime", Time.fixedDeltaTime);
+				CFT = Time.fixedDeltaTime;
+				ZPlayerPrefs.Save ();
+			}
 		} else {
 			ZPlayerPrefs.SetFloat("FixTime", Time.fixedDeltaTime);
 			CFT = Time.fixedDeltaTime;
+			ZPlayerPrefs.Save ();
+		}
+		ZPlayerPrefs.Initialize("what'sYourName", "salt12issalt");
+		if (ZPlayerPrefs.HasKey ("Offset")) {
+			CalibrationLoadingScript.offset = ZPlayerPrefs.GetFloat ("Offset");
+			ExampleLoadingScript.offset=ZPlayerPrefs.GetFloat ("Offset");
+			ZPlayerPrefs.Save ();
+		} else {
+			ZPlayerPrefs.SetFloat("Offset", 0.00f);
+			CalibrationLoadingScript.offset = 0.00f;
+			ExampleLoadingScript.offset = 0.00f;
 			ZPlayerPrefs.Save ();
 		}
 

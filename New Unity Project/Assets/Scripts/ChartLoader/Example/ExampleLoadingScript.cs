@@ -12,7 +12,7 @@ public class ExampleLoadingScript : MonoBehaviour {
 	//If In the project, json file will became TextAsset, which can easily read, but if it's not in the project, it will be read by File.ReadAllText(string path) (remember "using System.IO"), but i think it's still better if the chart is not in the project, so we can load many, dynamicly charts
 	//I will set to public, which could be editted in the Inspector, or you'll have to load it my Path
 	public TextAsset Chart;
-
+	public Rigidbody rb;
 	//prefabs for spawning
 	public GameObject ClickNote_NoSound_prefab;
 	public GameObject ClickNote_Sound_prefab;
@@ -29,6 +29,9 @@ public class ExampleLoadingScript : MonoBehaviour {
 	public GameObject JD5;
 	public GameObject JD6;
 	public GameObject JD7;
+	public static float speed;
+	public GameObject LineHandler;
+	public static float offset;
 
 
 	public static float SPEED = 10f;
@@ -127,12 +130,13 @@ public class ExampleLoadingScript : MonoBehaviour {
 		//GameObject.FindGameObjectWithTag ("title").GetComponent<Pause> ().MusicSource.Play ();
 		counterr = 1;
 		GameObject.FindWithTag("title").GetComponent<Pause> ().StartCoroutine ("StartChart");
-
+		//rb.velocity=new Vector2(0,-Note1.speed);
 
 
 	}
 
 	void Awake(){
+		rb = GetComponent<Rigidbody> ();
 		if (GM.currentSpeed == 4f) {
 			SPEED = speed4;
 			JD4.GetComponent<BoxCollider>().enabled = true;
@@ -164,6 +168,7 @@ public class ExampleLoadingScript : MonoBehaviour {
 			JD6.GetComponent<BoxCollider> ().enabled = false;
 			JD7.GetComponent<BoxCollider> ().enabled = false;
 		}
+
 		counter = 0;
 		counterr = 0;
 		DirectoryInfo directoryInfoo = new DirectoryInfo (Application.persistentDataPath);
@@ -192,6 +197,19 @@ public class ExampleLoadingScript : MonoBehaviour {
 		//Deserialize at the start
 		StartCoroutine(waittostart());
 		StartCoroutine (Chart_ing ());
+		if (GM.currentSpeed == 4f) {
+			speed = speed4;
+		} else if (GM.currentSpeed == 5f) {
+			speed = speed5;
+		} else if (GM.currentSpeed == 6f) {
+			speed = speed6;
+		} else if (GM.currentSpeed == 7f) {
+			speed = speed7;
+		} else {
+			speed = speed4;
+		}
+		rb.velocity=new Vector2(0,-speed);
+		LineHandler.transform.position= new Vector3(-0.5032098f, -3.351392f+offset, 0.6631012f);
 	}
 		
 

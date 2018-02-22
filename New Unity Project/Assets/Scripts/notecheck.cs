@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class notecheck : MonoBehaviour {
 	public LayerMask myLayerMask;
@@ -18,7 +19,10 @@ public class notecheck : MonoBehaviour {
 		Destroy(gameObject);
 	}
 	IEnumerator Starto(){
-		yield return new WaitUntil(GameObject.FindGameObjectWithTag("mainchrt").GetComponent<ExampleLoadingScript>().readytoplaymusic);
+		if (SceneManager.GetActiveScene ().name == "Calibration" || SceneManager.GetActiveScene ().name == "Calibration 169") {
+		} else {
+			yield return new WaitUntil (GameObject.FindGameObjectWithTag ("mainchrt").GetComponent<ExampleLoadingScript> ().readytoplaymusic);
+		}
 		charmingint=100.0f/GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().exChartcombo;
 		normint = charmingint / 2f;
 	}

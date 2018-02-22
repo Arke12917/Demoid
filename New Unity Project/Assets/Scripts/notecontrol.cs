@@ -11,6 +11,7 @@ public class notecontrol : MonoBehaviour {
 	public static string AllCharming = "AC";
 	public static string FullCombo = "FC";
 	public float finalscore;
+	public static float ingamescore;
 	public static float charmingint = 0;
 	public static float normint = 0;
 	public bool canclick;
@@ -28,6 +29,7 @@ public class notecontrol : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		finalscore = totalScore;
+		ingamescore = totalScore;
 		if (canclick) {
 			startTime -= Time.deltaTime;
 			//print (startTime);

@@ -116,9 +116,11 @@
      <Compile Include="Assets\LeanTouch\Scripts\LeanSelectable.cs" />
      <Compile Include="Assets\LeanTouch\Scripts\LeanSnapshot.cs" />
      <Compile Include="Assets\LeanTouch\Scripts\LeanTouch.cs" />
+     <Compile Include="Assets\loadoffset.cs" />
      <Compile Include="Assets\manageresult.cs" />
      <Compile Include="Assets\moveobj.cs" />
      <Compile Include="Assets\OpenURL.cs" />
+     <Compile Include="Assets\playinscene.cs" />
      <Compile Include="Assets\Scripts\ACcontroller.cs" />
      <Compile Include="Assets\Scripts\actiavtorspawner.cs" />
      <Compile Include="Assets\Scripts\backtofixed.cs" />
@@ -128,6 +130,7 @@
      <Compile Include="Assets\Scripts\changedifimage2.cs" />
      <Compile Include="Assets\Scripts\changetxtsize.cs" />
      <Compile Include="Assets\Scripts\ChartLoader\ChartLoader.cs" />
+     <Compile Include="Assets\Scripts\ChartLoader\Example\CalibrationLoadingScript.cs" />
      <Compile Include="Assets\Scripts\ChartLoader\Example\ExampleLoadingScript.cs" />
      <Compile Include="Assets\Scripts\cheatcheck.cs" />
      <Compile Include="Assets\Scripts\chnagenametext.cs" />
@@ -360,9 +363,11 @@
      <None Include="Assets\StreamingAssets\Summer Night\DEMOID.txt" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\LeanTouch\Examples\Fonts\OFL.txt" />
+     <None Include="Assets\Resources\Summer Night\DEMOID.txt" />
      <None Include="Assets\unity-ui-extensions\Shaders\UIAdditive.shader" />
      <None Include="Assets\ZFrame\Readme\readme_ZPlayerPrefs.txt" />
      <None Include="Assets\unity-ui-extensions\Shaders\UI Particle AddSmooth.shader" />
+     <None Include="Assets\Resources\Summer Night\diff Summer Night.txt" />
      <None Include="Assets\ADL-Plugins\Instructions_ZIP.txt" />
      <None Include="Assets\Scripts\Titlescreen\BLUR.shader" />
      <None Include="Assets\unity-ui-extensions\Shaders\UI Particle Premultiply Blend.shader" />
@@ -371,6 +376,7 @@
      <None Include="Assets\LeanTouch\Examples\Shaders\Skybox.shader" />
      <None Include="Assets\unity-ui-extensions\Shaders\SoftMaskShader.shader" />
      <None Include="Assets\LeanTouch\Examples\Shaders\Smooth.shader" />
+     <None Include="Assets\Resources\Summer Night\song Summer Night.txt" />
      <None Include="Assets\unity-ui-extensions\Shaders\UI Particle Add.shader" />
      <None Include="Assets\unity-ui-extensions\Shaders\UI Particle Multiply.shader" />
      <None Include="Assets\unity-ui-extensions\Shaders\UI Particle Alpha Blend.shader" />

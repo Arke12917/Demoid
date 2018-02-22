@@ -20,3 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/main game 169.unity
     guid: f2dd3ade8ed5d45beb4d3f000c3b31cb
+  - enabled: 1
+    path: Assets/Calibration.unity
+    guid: c1d71b1a337c34271ae339134396e62f
+  - enabled: 1
+    path: Assets/Calibration 169.unity
+    guid: aad8554df422e42cfaddf398f463d2e0

@@ -31,6 +31,7 @@ public class Pause : MonoBehaviour {
 	public int musicID;
 	public string mdirect;
 	public static int c0unt=0;
+	public string currentname;
 
 	void Awake(){
 		#if !UNITY_EDITOR
@@ -43,6 +44,7 @@ public class Pause : MonoBehaviour {
 		#if UNITY_EDITOR
 		soundext = ".mp3";
 		#endif
+		currentname=SceneManager.GetActiveScene().name;
 		height = Screen.currentResolution.height.ToString();
 		width = Screen.currentResolution.width.ToString();
 		DirectoryInfo directoryInfoo = new DirectoryInfo (Application.persistentDataPath);
@@ -151,43 +153,58 @@ public class Pause : MonoBehaviour {
 		}
 	}
 	public void restart(){
-		loadingother = true;
+		if (SceneManager.GetActiveScene ().name == "Calibration" || SceneManager.GetActiveScene ().name == "Calibration 169") {
+			loadingother = true;
+			ispaused = false;
+			GM.totalCombo = 0;
+			GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<notecontrol> ().totalScore = 0.00f;
+			notecontrol.AllCharming = "AC";
+			notecontrol.FullCombo = "FC";
+			GM.highestcombo = 0;
+			GM.highestcharmingcount = 0;
+			Time.timeScale = 1;
+			SceneManager.LoadScene (currentname);
+		} else{
+			loadingother = true;
 		ispaused = false;
 		//Time.timeScale = 1;
 		GM.totalCombo = 0;
 		notecontrol.AllCharming = "AC";
 		notecontrol.FullCombo = "FC";
-		GameObject.FindGameObjectWithTag("MainCamera").GetComponent<notecontrol>().totalScore = 0.00f;
+		GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<notecontrol> ().totalScore = 0.00f;
 		GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().FullCombo = false;
 		GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().AllCharming = false;
 		GM.highestcombo = 0;
 		GM.highestcharmingcount = 0;
 		GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().exChartcombo = 0;
 		GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().sc0re = 0;
-		float conheight = float.Parse(height);
-		float conwidth = float.Parse(width);
-		if ((conwidth*1.0)/conheight >= 1.7f||(conwidth*1.0)/conheight>=2.05f) {
+		float conheight = float.Parse (height);
+		float conwidth = float.Parse (width);
+		if ((conwidth * 1.0) / conheight >= 1.7f || (conwidth * 1.0) / conheight >= 2.05f) {
 			//16:9
 			//18:9
 			print ("yah");
-			Initiate.Fade(scene169,loadToColor,0.5f);
+			Initiate.Fade (scene169, loadToColor, 0.5f);
 
 			//Application.LoadLevel (4);
 		} else {
-			Initiate.Fade(scenenorm,loadToColor,0.5f);
+			Initiate.Fade (scenenorm, loadToColor, 0.5f);
 		
 			//Application.LoadLevel (2);
 		}
 	}
+	}
 	IEnumerator Faded()
-	{
-		yield return new WaitUntil(GameObject.FindGameObjectWithTag("mainchrt").GetComponent<ExampleLoadingScript>().readytoplaymusic);
+	{yield return new WaitForSeconds (0.0f);
+		//yield return new WaitUntil(GameObject.FindGameObjectWithTag("mainchrt").GetComponent<ExampleLoadingScript>().readytoplaymusic);
 		//MusicSource.Play();
 		//StartCoroutine (SongEndo ());
 		//Debug.Log("played!");
 	}
 
 	IEnumerator SongEndo(){
+		if (SceneManager.GetActiveScene ().name == "Calibration" || SceneManager.GetActiveScene ().name == "Calibration 169") {
+		}else{
 		yield return new WaitForSeconds (slength);
 		if(loadingother==false){
 			loadingother = true;
@@ -216,6 +233,7 @@ public class Pause : MonoBehaviour {
 		
 		}
 	}
+}
 	IEnumerator Waiting()
 	{
 		canvas1.gameObject.SetActive (true);
@@ -247,6 +265,19 @@ public class Pause : MonoBehaviour {
 	}
 
 	public void gotosongs(){
+		if (SceneManager.GetActiveScene ().name == "Calibration" || SceneManager.GetActiveScene ().name == "Calibration 169") {
+			loadingother = true;
+			c0unt = 0;
+			GM.c00unt = 1;
+			GM.totalCombo = 0;
+			notecontrol.AllCharming = "AC";
+			notecontrol.FullCombo = "FC";
+			GameObject.FindGameObjectWithTag("MainCamera").GetComponent<notecontrol>().totalScore = 0.00f;
+			Destroy(GameObject.FindGameObjectWithTag ("Scoreobject"));
+			Time.timeScale = 1;
+			GameObject.FindGameObjectWithTag ("BOIYEA").tag="YEABOI";
+			SceneManager.LoadScene ("Select Song");
+		}else{
 		loadingother = true;
 		c0unt = 0;
 		GM.c00unt = 1;
@@ -262,6 +293,7 @@ public class Pause : MonoBehaviour {
 		//Destroy(Loader);
 		//SceneManager.LoadScene("Select Song");
 	}
+}
 
 	IEnumerator waiting(){
 		yield return new WaitForSecondsRealtime (0.0f);

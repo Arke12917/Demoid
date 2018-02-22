@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class latenotecheck : MonoBehaviour {
 	public LayerMask myLayerMask;
 	bool started = true;
@@ -19,7 +19,10 @@ public class latenotecheck : MonoBehaviour {
 	}
 
 	IEnumerator Starto(){
-		yield return new WaitUntil(GameObject.FindGameObjectWithTag("mainchrt").GetComponent<ExampleLoadingScript>().readytoplaymusic);
+		if (SceneManager.GetActiveScene ().name == "Calibration" || SceneManager.GetActiveScene ().name == "Calibration 169") {
+		} else {
+			yield return new WaitUntil (GameObject.FindGameObjectWithTag ("mainchrt").GetComponent<ExampleLoadingScript> ().readytoplaymusic);
+		}
 		charmingint=100.0f/GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().exChartcombo;
 		normint = charmingint / 2f;
 	}
