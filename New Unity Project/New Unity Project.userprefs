@@ -1,18 +1,23 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ChartLoader/Example/ExampleLoadingScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/rendered.cs">
     <Files>
       <File FileName="Assets/ThisCFT.cs" Line="1" Column="1" />
-      <File FileName="Assets/COSCAN.cs" Line="1" Column="1" />
-      <File FileName="Assets/LeanTouch/Examples/Scripts/LeanFingerDown.cs" Line="98" Column="8" />
-      <File FileName="Assets/Scripts/Slidenoteburst.cs" Line="40" Column="4" />
-      <File FileName="Assets/Scripts/SLC2.cs" Line="1" Column="1" />
+      <File FileName="Assets/LeanTouch/Examples/Scripts/LeanFingerDown.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Slidenoteburst.cs" Line="1" Column="1" />
       <File FileName="Assets/LeanTouch/Examples/Scripts/LeanFingerHeld.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/currentscore.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/notecheck.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/latenotecheck.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/deletthis.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GM.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/songnamechange.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/ChartLoader/Example/ExampleLoadingScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ChartLoader/Example/CalibrationLoadingScript.cs" Line="212" Column="85" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="352" Column="31" />
+      <File FileName="Assets/notrender.cs" Line="16" Column="1" />
+      <File FileName="Assets/FailCollision.cs" Line="16" Column="1" />
+      <File FileName="Assets/rendered.cs" Line="22" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -39,7 +39,6 @@ public class GameManager : MonoBehaviour
 {
 
     [Header("Arena Objects")]
-    private GameObject playerTank;
 	public Image BG;
 	public Text SongName;
 	public Text ActualName;
@@ -231,8 +230,6 @@ public class GameManager : MonoBehaviour
 	
         loadingScreen.SetActive(true);
         Time.timeScale = 0.0f;
-        playerTank = GameObject.FindGameObjectWithTag("Player");
-
         StartCoroutine("RemoveLoadingScreen");
 		newelement=GameObject.Find ("Element 0");
 		print("I found it"+gameObject.name);
@@ -353,9 +350,6 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("MainScene"); 
         Time.timeScale = 1.0f;
-        Rigidbody playerRB = playerTank.GetComponent<Rigidbody>();
-        playerRB.isKinematic = true;
-        playerRB.isKinematic = false;
     }
 
 

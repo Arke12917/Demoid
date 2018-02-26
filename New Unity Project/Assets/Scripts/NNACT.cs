@@ -12,6 +12,8 @@ public class NNACT : MonoBehaviour {
 	public GameObject Slidelinehit;
 	public GameObject NACT;
 	public float getFinger;
+	private bool CCK;
+	private float time;
 	// Use this for initialization
 	void Start () {
 		RaycastHit hit;
@@ -19,9 +21,10 @@ public class NNACT : MonoBehaviour {
 		LayerMask layer =  ~(1 << LayerMask.NameToLayer(nameOfLayer)); 
 		Debug.DrawRay (transform.position, Vector3.up * 12f, Color.white, 10f);
 		if(Physics.Raycast(transform.position, Vector3.up,out hit,12f,mylayermask)){
-			if (hit.collider.gameObject.tag == "Note") {
-				if (hit.collider.gameObject.GetComponent<CanclickOG> ().canclick == true) {
-					if (hit.collider.gameObject.GetComponent<CanclickOG> ().startTime <= 2.92f && hit.collider.gameObject.GetComponent<CanclickOG> ().startTime >= 2.824f) {
+			CCK = hit.collider.gameObject.GetComponent<CanclickOG> ().canclick;
+			time = hit.collider.gameObject.GetComponent<CanclickOG> ().startTime;
+			if (CCK == true) {
+				if (time <= 2.92f && time >= 2.824f) {
 						hit.collider.gameObject.SetActive (false);
 						Debug.Log ("Hit!!");
 						PSS = new Vector3 (hit.collider.transform.position.x, -1.848f, -3.559f);
@@ -34,7 +37,7 @@ public class NNACT : MonoBehaviour {
 						if (GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<notecontrol> ().totalScore < 100) {
 							GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<notecontrol> ().totalScore += notecheck.charmingint;
 						}
-					} else if ((hit.collider.gameObject.GetComponent<CanclickOG> ().startTime <= 2.967537f && hit.collider.gameObject.GetComponent<CanclickOG> ().startTime > 2.92f) || (hit.collider.gameObject.GetComponent<CanclickOG> ().startTime >= 2.78f && hit.collider.gameObject.GetComponent<CanclickOG> ().startTime < 2.824)) {
+				} else if ((time <= 2.967537f && time > 2.92f) || (time >= 2.78f && time < 2.824)) {
 						hit.collider.gameObject.SetActive (false);
 						Debug.Log ("Hit!!");
 						Instantiate (lateBurst, hit.collider.transform.position, lateBurst.rotation);
@@ -46,7 +49,7 @@ public class NNACT : MonoBehaviour {
 						if (GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<notecontrol> ().totalScore < 100) {
 							GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<notecontrol> ().totalScore += notecheck.normint;
 						}
-					} else if (hit.collider.gameObject.GetComponent<CanclickOG> ().startTime <= 3.0f && hit.collider.gameObject.GetComponent<CanclickOG> ().startTime > 2.967537f) {
+				} else if (time <= 3.0f && time > 2.967537f) {
 						hit.collider.gameObject.SetActive (false);
 						Debug.Log ("Fail!!");
 						Instantiate (failBurst, hit.point, failBurst.rotation);
@@ -54,11 +57,8 @@ public class NNACT : MonoBehaviour {
 						notecontrol.AllCharming = " ";
 						notecontrol.FullCombo = " ";
 					}
-				}
-			} else if (hit.collider.gameObject.tag == "slideynote") {
-
-			} else {
-				Instantiate (NACT, transform.position, Quaternion.identity);
+				} else {
+				//Instantiate (NACT, transform.position, Quaternion.identity);
 
 			}
 	}

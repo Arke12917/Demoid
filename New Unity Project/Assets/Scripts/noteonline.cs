@@ -10,12 +10,17 @@ public class noteonline : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 			
-			Noteline = transform.position;
+			//Noteline = transform.position;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+		void OnTriggerEnter(Collider other)
+		{
+			//other.gameObject.GetComponent<CanclickOG> ().StartCoroutine ("checkclick");
+			
+}
 }
 }

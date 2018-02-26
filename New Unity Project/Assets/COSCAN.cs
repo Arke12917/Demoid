@@ -44,15 +44,27 @@ public class COSCAN : MonoBehaviour {
 			if (Time.fixedDeltaTime == 0.01f) {
 				Time.fixedDeltaTime = 0.015f;
 				GM.CFT = Time.fixedDeltaTime;
-			}else if (Time.fixedDeltaTime == 0.015f) {
+			} else if (Time.fixedDeltaTime == 0.015f) {
 				Time.fixedDeltaTime = 0.02f;
 				GM.CFT = Time.fixedDeltaTime;
+			} else if (Time.fixedDeltaTime == 0.02f && Application.platform == RuntimePlatform.Android) {
+				Time.fixedDeltaTime = 0.03f;
+				GM.CFT = Time.fixedDeltaTime;
+			} else if (Time.fixedDeltaTime == 0.03f && Application.platform == RuntimePlatform.Android) {
+				Time.fixedDeltaTime = 0.04f;
+				GM.CFT = Time.fixedDeltaTime;
 			} else {
-			}
 				
+			}
 		}
 	public void fixdown(){
-			if (Time.fixedDeltaTime == 0.02f) {
+			if (Time.fixedDeltaTime == 0.04f) {
+				Time.fixedDeltaTime = 0.03f;
+				GM.CFT = Time.fixedDeltaTime;
+			} else if (Time.fixedDeltaTime == 0.03f) {
+				Time.fixedDeltaTime = 0.02f;
+				GM.CFT = Time.fixedDeltaTime;
+			} else if (Time.fixedDeltaTime == 0.02f) {
 				Time.fixedDeltaTime = 0.015f;
 				GM.CFT = Time.fixedDeltaTime;
 			} else if (Time.fixedDeltaTime == 0.015f) {

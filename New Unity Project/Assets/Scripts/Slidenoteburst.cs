@@ -25,19 +25,5 @@ public class Slidenoteburst : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void OnTriggerEnter(Collider other)
-	{
 
-		if (other.gameObject.name == "Failcollider") 
-		{
-			
-			Debug.Log ("Fail!!");
-			//Instantiate (failBurst, transform.position, failBurst.rotation);
-			GM.totalCombo = (GM.totalCombo-=GM.totalCombo);
-			notecontrol.AllCharming = " ";
-			notecontrol.FullCombo = " ";
-			gameObject.SetActive (false);
-		}
-			
- }
 }

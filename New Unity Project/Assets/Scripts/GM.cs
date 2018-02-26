@@ -57,10 +57,16 @@ public class GM : MonoBehaviour {
 				CFT = Time.fixedDeltaTime;
 				ZPlayerPrefs.Save ();
 			} else {
-				ZPlayerPrefs.SetFloat("FixTime", Time.fixedDeltaTime);
-				CFT = Time.fixedDeltaTime;
-				ZPlayerPrefs.Save ();
-			}
+				if (Application.platform == RuntimePlatform.IPhonePlayer) {
+					ZPlayerPrefs.SetFloat ("FixTime", Time.fixedDeltaTime);
+					CFT = Time.fixedDeltaTime;
+					ZPlayerPrefs.Save ();
+				} else {
+					Time.fixedDeltaTime = ZPlayerPrefs.GetFloat ("FixTime");
+					CFT = Time.fixedDeltaTime;
+					ZPlayerPrefs.Save ();
+				}
+		}
 		} else {
 			ZPlayerPrefs.SetFloat("FixTime", Time.fixedDeltaTime);
 			CFT = Time.fixedDeltaTime;

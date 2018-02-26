@@ -19,9 +19,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4055880913882964}
-  - component: {fileID: 33147065155626088}
-  - component: {fileID: 23762999461140988}
-  - component: {fileID: 65310209493125024}
   - component: {fileID: 114534833600641658}
   - component: {fileID: 114265689050065924}
   m_Layer: 2
@@ -44,59 +41,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!23 &23762999461140988
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1338144652717110}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: be036800f5fed4442aa42316c07e85f2, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &33147065155626088
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1338144652717110}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65310209493125024
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1338144652717110}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.99999976, y: 68.27848, z: 1.0000002}
-  m_Center: {x: 0, y: -2.6492538, z: -7.145191e-16}
 --- !u!114 &114265689050065924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -115,10 +59,10 @@ MonoBehaviour:
   PSS: {x: 0, y: 0, z: 0}
   mylayermask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 393216
   line: {fileID: 0}
   Slidelinehit: {fileID: 0}
-  NACT: {fileID: 1828067672560156, guid: 4169809fce9d547d983a2736a6d2f9a8, type: 2}
+  NACT: {fileID: 0}
   getFinger: 0
 --- !u!114 &114534833600641658
 MonoBehaviour:

@@ -1,4 +1,4 @@
-Android
+iOS
 SceneListBegin?
 Assets/Title.unity
 Assets/Select Song.unity
@@ -33,6 +33,7 @@ efe64dd5ecf6f62897d523c6b441db6f Assembly-CSharp.dll:.judgelinehandler
 d4a1e281f14040c0ca839fef36ada851 Assembly-CSharp.dll:.SlideCharmFixed
 2b02ccec3dbb85649e62a2201f5c2c9a Assembly-CSharp.dll:UnityEngine.UI.Extensions.Examples.Example03ScrollView
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityEngine.UI.Extensions.UILinearDodgeEffect
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.rendered
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Lean.Touch.LeanSelectableTranslateInertia3D
 331c40a6b05b92c0ae5266c4e624730a Assembly-CSharp.dll:.actiavtorspawner
 685d4c83b4896c997314336557dd18df Assembly-CSharp.dll:Lean.Touch.LeanFingerLine
@@ -41,6 +42,7 @@ d4a1e281f14040c0ca839fef36ada851 Assembly-CSharp.dll:.SlideCharmFixed
 854658c9be5ba759ca80b259cefdc950 Assembly-CSharp.dll:UnityEngine.UI.Extensions.AutoCompleteComboBox
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityEngine.UI.Extensions.UISoftAdditiveEffect
 4622af952b7e6fee8412f03a62a2f79a Assembly-CSharp.dll:UnityEngine.UI.Extensions.UICircle
+2607aef6927df2ccd4ebab584f812b3e Assembly-CSharp.dll:.SpawnSN
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -210,6 +212,7 @@ e1f1285d86f3a1745afc7444b310fb42 Assembly-CSharp.dll:Lean.Touch.LeanPitchYaw
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Lean.Touch.LeanOpenUrl
 bcf24c6060c147d4b11041fada88a67a Assembly-CSharp.dll:UnityEngine.UI.Extensions.TabNavigationHelper
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityEngine.UI.Extensions.prefabat
+2607aef6927df2ccd4ebab584f812b3e Assembly-CSharp.dll:.SpawnNSN
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityEngine.UI.Extensions.Examples.ComboBoxChanged
 5783b5cb6e6d5bcc7df8ef9e6d5aada9 Assembly-CSharp.dll:Lean.Touch.LeanRotate
 161d81543a4f3cb98ac65429a6a32ff3 Assembly-CSharp.dll:UnityEngine.UI.Extensions.BoundTooltipItem
@@ -247,6 +250,7 @@ ae5121fb0eea49442b0020b544efcc18 Assembly-CSharp.dll:UnityEngine.EventSystems.Ga
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityEngine.UI.Extensions.UIAdditiveEffect
 d6a66d9d344da810bf468c669ab6b944 Assembly-CSharp.dll:UnityEngine.UI.Extensions.Examples.Example01Scene
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.backto
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.FailCollision
 c0ca2966713a4a1395259105a4b69054 Assembly-CSharp.dll:UnityEngine.UI.Extensions.UpdateScrollSnap
 25a2aef01826a2ce5990a41d4bce0f94 Assembly-CSharp.dll:UnityEngine.UI.Extensions.ColorPicker.SVBoxSlider
 0ea70f437b58d92cf4f15c8746110639 Assembly-CSharp.dll:UnityEngine.UI.Extensions.UIParticleSystem
@@ -289,6 +293,7 @@ ddcd2b40d3d4885ab7ea05050091eb6d Assembly-CSharp.dll:UnityEngine.UI.Extensions.C
 2812764adab4962e912837773b0635ed Assembly-CSharp.dll:UnityEngine.UI.Extensions.UIFlippable
 440cf9f96dc91826afc305dc88fcf70c Assembly-CSharp.dll:.deactivatebg
 6ad53a0b0e1b7bbd14016abad1dad63a Assembly-CSharp.dll:Lean.Touch.LeanCameraMove
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.notrender
 2b02ccec3dbb85649e62a2201f5c2c9a Assembly-CSharp.dll:UnityEngine.UI.Extensions.Examples.Example02ScrollView
 1ea8b19f1a4ceb2cba6e5a954942e5af Assembly-CSharp.dll:UnityEngine.UI.Extensions.Gradient
 ec1d205a0dce8cd46bbe02d1844a6188 Assembly-CSharp.dll:UnityEngine.UI.Extensions.UILineConnector
@@ -381,6 +386,7 @@ f57fa57717b8adea28e2501b654b59e6 Assembly-CSharp.dll:.findcanvas
 9f7ee092e3c4902f0fa07d48f9771c43 Assembly-CSharp.dll:UnityEngine.UI.Extensions.ScrollRectLinker
 5280cd712761cc22a060614af17a1243 Assembly-CSharp.dll:.latenotecheck
 0c691587732a3b944f1593e6d3db741b Assembly-CSharp.dll:UnityEngine.UI.Extensions.DragCorrector
+2607aef6927df2ccd4ebab584f812b3e Assembly-CSharp.dll:.SpawnSLN
 5d0b2f0ad0a91e310d57038f182ef601 Assembly-CSharp.dll:UnityEngine.UI.Extensions.ReorderableListDebug
 f9c4d256511b4ae7d630405c5a25afdf Assembly-CSharp.dll:.ANAMusicExample
 e05be01f2be703e694b189a5480a3556 Assembly-CSharp.dll:Lean.Touch.cheatcheck

@@ -22,7 +22,7 @@ public class deletthis : MonoBehaviour {
 	IEnumerator poscheck(){
 		started = true;
 		pos1 = gameObject.transform.position;
-		yield return new WaitForSecondsRealtime (1.5f);
+		yield return new WaitForSecondsRealtime (0.2f);
 		pos2 = gameObject.transform.position;
 		if (pos1 == pos2) {
 			GameObject.FindGameObjectWithTag("slidechecker").GetComponent<LeanFingerHeld> ().ischeating=true;

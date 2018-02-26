@@ -91,21 +91,21 @@ public class ExampleLoadingScript : MonoBehaviour {
 		foreach (D_Note note in ClickNotes) {
 			if (note.sounds == null) { //if it's no Sound Note
 				if (note.pos <= 2) {
-					GameObject note_ = Object.Instantiate (ClickNote_NoSound_prefab, new Vector3 ((float)note.pos, (float)(note._time * SPEED), -3.556f), Quaternion.Euler (-90, 0, 0));
+					GameObject note_ = Object.Instantiate (ClickNote_NoSound_prefab, new Vector3 ((float)note.pos, (float)(note._time * SPEED), -3.556f), Quaternion.Euler (0, 0, 0));
 					//for knowing
 					note_.name = "Note ID: " + note.id_;
 					//set size
-					note_.transform.localScale = new Vector3 ((float)note.size, 0.01f, 0.2f);
+					note_.transform.localScale = new Vector3 ((float)note.size/2, 0.6275f, 0.2f);
 					note_.transform.SetParent (transform);
 					GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().exChartcombo += 1;
 				}
 			} else {
 				if (note.pos <= 2) {
-					GameObject note_ = Object.Instantiate (ClickNote_Sound_prefab, new Vector3 ((float)note.pos, (float)(note._time * SPEED), -3.556f), Quaternion.Euler (-90, 0, 0));
+					GameObject note_ = Object.Instantiate (ClickNote_Sound_prefab, new Vector3 ((float)note.pos, (float)(note._time * SPEED), -3.556f), Quaternion.Euler (0, 0, 0));
 					//for knowing
 					note_.name = "Note ID: " + note.id_;
 					//set size
-					note_.transform.localScale = new Vector3 ((float)note.size, 0.01f, 0.2f);
+					note_.transform.localScale = new Vector3 ((float)note.size/2, 0.6275f, 0.2f);
 					note_.transform.SetParent (transform);
 					GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().exChartcombo += 1;
 				}
@@ -113,9 +113,9 @@ public class ExampleLoadingScript : MonoBehaviour {
 		}
 		foreach (D_Note note in SlideNotes) {
 			if (note.pos <= 2) {
-				GameObject note_ = Object.Instantiate (SlideNote_prefab, new Vector3 ((float)note.pos, (float)(note._time * SPEED), -3.556f), Quaternion.Euler (-90, 0, 0));
+				GameObject note_ = Object.Instantiate (SlideNote_prefab, new Vector3 ((float)note.pos, (float)(note._time * SPEED), -3.556f), Quaternion.Euler (0, 0, 0));
 				note_.name = "Slide Note ID: " + note.id_;
-				note_.transform.localScale = new Vector3 ((float)note.size, 0.01f, 0.2f);
+				note_.transform.localScale = new Vector3 ((float)note.size/2, 0.6275f, 0.2f);
 				note_.transform.SetParent (transform);
 				GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().exChartcombo += 1;
 			}
@@ -209,7 +209,7 @@ public class ExampleLoadingScript : MonoBehaviour {
 			speed = speed4;
 		}
 		rb.velocity=new Vector2(0,-speed);
-		LineHandler.transform.position= new Vector3(-0.5032098f, -3.351392f+offset, 0.6631012f);
+		LineHandler.transform.position= new Vector3(-0.5032098f, -3.351392f+offset, 0.7f);
 	}
 		
 

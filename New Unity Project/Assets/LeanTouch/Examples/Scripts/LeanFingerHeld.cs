@@ -242,18 +242,8 @@ namespace Lean.Touch
 
 		private void OnFingerUp(LeanFinger finger)
 		{
-			gameObjectt = GameObject.FindGameObjectWithTag("cheatcheck");
-			if (gameObjectt == null) {
-				GameObject.FindGameObjectWithTag ("slidechecker").GetComponent<LeanFingerHeld> ().ischeating = false;
-			} else {
-				GameObject[] gameObjects;
-				gameObjects = GameObject.FindGameObjectsWithTag ("cheatcheck");
-
-				for(var i = 0 ; i < gameObjects.Length ; i ++)
-				{
-					Destroy(gameObjects[i]);
-				}
-			}
+				ischeating = false;
+	
 			// Try and find the link for this finger
 			var link = FindLink(finger);
 			Destroy(finger.slidey);

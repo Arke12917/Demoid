@@ -45,6 +45,8 @@ TagManager:
   - Fader
   - FTSV
   - BOIYEA
+  - notespawner
+  - judgetest
   layers:
   - Default
   - TransparentFX
@@ -60,11 +62,11 @@ TagManager:
   - lol
   - actlayer
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ignore Collision
+  - Special Layer
+  - Ignore other Col
+  - Notesound
+  - Nosound
   - 
   - 
   - 

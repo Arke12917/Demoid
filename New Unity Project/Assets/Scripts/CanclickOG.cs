@@ -21,4 +21,14 @@ public class CanclickOG : MonoBehaviour {
 			//print (startTime);
 		}
 	}
+	void OnTriggerEnter(Collider other)
+	{
+		if (canclick == false) {
+			try {
+				StartCoroutine (checkclick ());
+			} catch {
+			}
+		} else {
+		}
+	}
 }

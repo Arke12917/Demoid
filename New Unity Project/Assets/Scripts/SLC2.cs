@@ -36,9 +36,9 @@ public class SLC2 : MonoBehaviour {
 		ray = new Ray(transform.position, Vector3.right);
 		Debug.DrawRay (transform.position, Vector3.right * range, Color.white, 10f);
 		if (Physics.Raycast(ray, out hit, range,myLayerMask)) {
-			if (hit.collider.gameObject.tag == "SlideBox") {
+			if (hit.collider.gameObject.tag == "slideynote") {
 				if (collidertoucched == false) {
-					hit.collider.transform.parent.gameObject.SetActive (false);
+					hit.collider.gameObject.SetActive (false);
 					Debug.Log ("Hit!!");
 					Instantiate (lateburst, transform.position, lateburst.rotation);
 					GM.totalCombo += 1;
@@ -54,11 +54,7 @@ public class SLC2 : MonoBehaviour {
 
 		}
 	}
-
-	void Fixedupdate(){
-
-
-	}
+		
 	void Start () {
 		StartCoroutine (Starto ());
 
@@ -68,11 +64,11 @@ public class SLC2 : MonoBehaviour {
 		ray1 = new Ray(transform.position, Vector3.left);
 		Debug.DrawRay (transform.position, Vector3.left * range, Color.white, 10f);
 		if (Physics.Raycast(ray1, out hit1, range,myLayerMask)) { 
-			if (hit1.collider.gameObject.tag == "SlideBox") {
+			if (hit1.collider.gameObject.tag == "slideynote") {
 				if (collidertoucched == true) {
 				}
 				else if (collidertoucched == false) {
-					hit1.collider.transform.parent.gameObject.SetActive (false);
+					hit1.collider.gameObject.SetActive (false);
 					Debug.Log ("Hit!!");
 					Instantiate (lateburst, transform.position, lateburst.rotation);
 					GM.totalCombo += 1;
@@ -91,10 +87,10 @@ public class SLC2 : MonoBehaviour {
 		ray2 = new Ray(transform.position, Vector3.down);
 		Debug.DrawRay (transform.position, Vector3.down * range1, Color.white, 10f);
 		if (Physics.Raycast(ray2, out hit2, range1,myLayerMask))  {
-			if (hit2.collider.gameObject.tag == "SlideBox") {
+			if (hit2.collider.gameObject.tag == "slideynote") {
 				if (collidertoucched == true) {
 				} else if (collidertoucched == false) {
-					hit2.collider.transform.parent.gameObject.SetActive (false);
+					hit2.collider.gameObject.SetActive (false);
 					Debug.Log ("Hit!!");
 					Instantiate (lateburst, transform.position, lateburst.rotation);
 					GM.totalCombo += 1;
@@ -120,7 +116,7 @@ public class SLC2 : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.tag == "SlideBox") 
+		if (other.gameObject.tag == "slideynote") 
 		{
 			collidertoucched = true;
 			Debug.Log ("Hit!!");
@@ -135,7 +131,7 @@ public class SLC2 : MonoBehaviour {
 				GameObject.FindGameObjectWithTag("MainCamera").GetComponent<notecontrol>().totalScore += charmingintt;
 
 			}
-			other.transform.parent.gameObject.SetActive (false);
+			other.gameObject.SetActive (false);
 		}
 	}
 }
