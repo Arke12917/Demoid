@@ -91,7 +91,7 @@ public class Pause : MonoBehaviour {
 		GM.totalCombo = 0;//done
 		GM.highestcombo = 0;//done
 		GM.highestcharmingcount = 0;//done
-		StartCoroutine(Faded());
+		//StartCoroutine(Faded());
 	
 
 

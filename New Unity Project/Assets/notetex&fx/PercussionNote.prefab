@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 212799338368332040}
   m_Layer: 18
   m_Name: PercussionNote
-  m_TagString: Note
+  m_TagString: NoteP
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -34,16 +34,16 @@ public class songnamechange : MonoBehaviour {
 			#endif
 		StartCoroutine (loadsongname ());
 			DirectoryInfo directoryInfoo = new DirectoryInfo (Application.persistentDataPath);
-			print ("Streaming Assets Path: " + Application.persistentDataPath);
+			//print ("Streaming Assets Path: " + Application.persistentDataPath);
 			DirectoryInfo[] allFiless = directoryInfoo.GetDirectories ("*");
 			foreach (DirectoryInfo directory in allFiless) {
 				var toPath = directory + "/" + Path.GetFileName ("DEMOID.txt");
-				print (toPath);
+				//print (toPath);
 				if (File.Exists (toPath)) {
-					print ("YEAAAAAHHHDHSDHASHDSAHDAHDSAHD");
+					//print ("YEAAAAAHHHDHSDHASHDSAHDAHDSAHD");
 				}
 				DirectoryInfo directoryInfo = new DirectoryInfo (directory + "/");
-				print ("Streaming Assets Path: " + directoryInfo);
+				//print ("Streaming Assets Path: " + directoryInfo);
 				FileInfo[] allFiles = directoryInfo.GetFiles ("*.*");
 				foreach (FileInfo file in allFiles) {
 			if (file.Name.Contains("soundtrack"))
@@ -116,7 +116,7 @@ public class songnamechange : MonoBehaviour {
 		//mfile = musicFile.Name.Replace(".ogg.meta","");
 
 		yield return new WaitForSeconds (0.0f);
-		print("lolololol");
+		//print("lolololol");
 		if (musicFile.Name.Contains("meta")) 
 		{
 			yield break;
@@ -124,13 +124,13 @@ public class songnamechange : MonoBehaviour {
 			else if(musicFile.Name=="soundtrack " + gameObject.name +soundext)
 		{
 			string musicFilePath = musicFile.FullName.ToString();
-				print (musicFilePath);
+				//print (musicFilePath);
 			string url = string.Format("file://{0}", musicFilePath);
 			WWW www = new WWW(url);
 			yield return www;
 			musicplayerr.clip = www.GetAudioClip(false, false);
-			print("2ndcheck");
-				print (musicFile.Name);
+			//print("2ndcheck");
+				//print (musicFile.Name);
 			yield return new WaitForSeconds (0.0f);
 			//musicplayerr.Play();
 			if (gameObject.name.Contains("-")){
@@ -186,16 +186,16 @@ public class songnamechange : MonoBehaviour {
 		{
 			yield return new WaitForSeconds (0.0f);
 			DirectoryInfo directoryInfoo = new DirectoryInfo (Application.persistentDataPath);
-			print ("Streaming Assets Path: " + Application.persistentDataPath);
+			//print ("Streaming Assets Path: " + Application.persistentDataPath);
 			DirectoryInfo[] allFiless = directoryInfoo.GetDirectories ("*");
 			foreach (DirectoryInfo directory in allFiless) {
 				var toPath = directory + "/" + Path.GetFileName ("DEMOID.txt");
-				print (toPath);
+				//print (toPath);
 				if (File.Exists (toPath)) {
-					print ("YEAAAAAHHHDHSDHASHDSAHDAHDSAHD");
+					//print ("YEAAAAAHHHDHSDHASHDSAHDAHDSAHD");
 				}
 				DirectoryInfo directoryInfo = new DirectoryInfo (directory + "/");
-				print ("Streaming Assets Path: " + directoryInfo);
+				//print ("Streaming Assets Path: " + directoryInfo);
 				FileInfo[] allFiles = directoryInfo.GetFiles ("*.*");
 				foreach (FileInfo file in allFiles) {
 					if (file.Name.Contains ("bg")) {

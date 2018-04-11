@@ -47,6 +47,16 @@ TagManager:
   - BOIYEA
   - notespawner
   - judgetest
+  - NoteP
+  - CharmHit
+  - ClickHit
+  - Charter
+  - Illustrator
+  - Charterset
+  - Illustratorset
+  - CHARTTXT
+  - ILLUSTEXT
+  - YOUNOOB
   layers:
   - Default
   - TransparentFX

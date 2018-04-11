@@ -4,6 +4,7 @@ using UnityEngine;
 using DeemoChart;
 using System.IO;
 using UnityEngine.Networking;
+using UnityEngine.UI.Extensions;
 
 public class ExampleLoadingScript : MonoBehaviour {
 	//This script will show you how to deserialize/use a chart
@@ -13,6 +14,7 @@ public class ExampleLoadingScript : MonoBehaviour {
 	//I will set to public, which could be editted in the Inspector, or you'll have to load it my Path
 	public TextAsset Chart;
 	public Rigidbody rb;
+	public bool chartfound=false;
 	//prefabs for spawning
 	public GameObject ClickNote_NoSound_prefab;
 	public GameObject ClickNote_Sound_prefab;
@@ -32,6 +34,7 @@ public class ExampleLoadingScript : MonoBehaviour {
 	public static float speed;
 	public GameObject LineHandler;
 	public static float offset;
+	public GameObject loadSCREEN;
 
 
 	public static float SPEED = 10f;
@@ -50,6 +53,7 @@ public class ExampleLoadingScript : MonoBehaviour {
 		//declare the text of the chart (or you can skip this)
 		string text = ndresult;
 		//now we can get the D_Chart
+		//print(text);
 		D_Chart _Chart = ChartLoader.DeserializeChart(text);
 		//now we got all things we need
 		//In case the chart is invalid or havesome problem, may be we could but this in a try-catch block (but this's a "totally valid" chart from the game
@@ -91,33 +95,36 @@ public class ExampleLoadingScript : MonoBehaviour {
 		foreach (D_Note note in ClickNotes) {
 			if (note.sounds == null) { //if it's no Sound Note
 				if (note.pos <= 2) {
-					GameObject note_ = Object.Instantiate (ClickNote_NoSound_prefab, new Vector3 ((float)note.pos, (float)(note._time * SPEED), -3.556f), Quaternion.Euler (0, 0, 0));
+					//GameObject note_ = Object.Instantiate (ClickNote_NoSound_prefab, new Vector3 ((float)note.pos, (float)(note._time * SPEED), -3.556f), Quaternion.Euler (0, 0, 0));
 					//for knowing
-					note_.name = "Note ID: " + note.id_;
+					//note_.name = "Note ID: " + note.id_;
 					//set size
-					note_.transform.localScale = new Vector3 ((float)note.size/2, 0.6275f, 0.2f);
-					note_.transform.SetParent (transform);
+					//note_.transform.localScale = new Vector3 ((float)note.size/2, 0.6275f, 0.2f);
+					//note_.transform.SetParent (transform);
 					GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().exChartcombo += 1;
+					StartCoroutine (CNNS (note));
 				}
 			} else {
 				if (note.pos <= 2) {
-					GameObject note_ = Object.Instantiate (ClickNote_Sound_prefab, new Vector3 ((float)note.pos, (float)(note._time * SPEED), -3.556f), Quaternion.Euler (0, 0, 0));
+					//GameObject note_ = Object.Instantiate (ClickNote_Sound_prefab, new Vector3 ((float)note.pos, (float)(note._time * SPEED), -3.556f), Quaternion.Euler (0, 0, 0));
 					//for knowing
-					note_.name = "Note ID: " + note.id_;
+					//note_.name = "Note ID: " + note.id_;
 					//set size
-					note_.transform.localScale = new Vector3 ((float)note.size/2, 0.6275f, 0.2f);
-					note_.transform.SetParent (transform);
+					//note_.transform.localScale = new Vector3 ((float)note.size/2, 0.6275f, 0.2f);
+					//note_.transform.SetParent (transform);
 					GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().exChartcombo += 1;
+					StartCoroutine (CNS (note));
 				}
 			}
 		}
 		foreach (D_Note note in SlideNotes) {
 			if (note.pos <= 2) {
-				GameObject note_ = Object.Instantiate (SlideNote_prefab, new Vector3 ((float)note.pos, (float)(note._time * SPEED), -3.556f), Quaternion.Euler (0, 0, 0));
-				note_.name = "Slide Note ID: " + note.id_;
-				note_.transform.localScale = new Vector3 ((float)note.size/2, 0.6275f, 0.2f);
-				note_.transform.SetParent (transform);
+				//GameObject note_ = Object.Instantiate (SlideNote_prefab, new Vector3 ((float)note.pos, (float)(note._time * SPEED), -3.556f), Quaternion.Euler (0, 0, 0));
+				//note_.name = "Slide Note ID: " + note.id_;
+				//note_.transform.localScale = new Vector3 ((float)note.size/2, 0.6275f, 0.2f);
+				//note_.transform.SetParent (transform);
 				GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().exChartcombo += 1;
+				StartCoroutine (SN (note));
 			}
 		}
 		Debug.Log ("DONE");
@@ -129,6 +136,7 @@ public class ExampleLoadingScript : MonoBehaviour {
 		//print (notecontrol.normint);
 		//GameObject.FindGameObjectWithTag ("title").GetComponent<Pause> ().MusicSource.Play ();
 		counterr = 1;
+		loadSCREEN.SetActive (false);
 		GameObject.FindWithTag("title").GetComponent<Pause> ().StartCoroutine ("StartChart");
 		//rb.velocity=new Vector2(0,-Note1.speed);
 
@@ -136,6 +144,7 @@ public class ExampleLoadingScript : MonoBehaviour {
 	}
 
 	void Awake(){
+		chartfound = false;
 		rb = GetComponent<Rigidbody> ();
 		if (GM.currentSpeed == 4f) {
 			SPEED = speed4;
@@ -182,20 +191,35 @@ public class ExampleLoadingScript : MonoBehaviour {
 			}
 			DirectoryInfo directoryInfo = new DirectoryInfo (directory + "/");
 			print ("Streaming Assets Path: " + directoryInfo);
-			FileInfo[] allFiles = directoryInfo.GetFiles ("*.*");
+			FileInfo[] allFiles = directoryInfo.GetFiles ("*.json");
 			foreach (FileInfo file in allFiles) {
-				if (file.Name.Contains ("chart")) {
+				if (file.Name.Contains ("chart") && changedifimage.currentdiff == 0) {
 					StartCoroutine ("LoadChart", file);
+					chartfound = true;
+				}
+			} 
+				
+	}
+		if (chartfound == false) {
+			StartCoroutine(NEWDIFF());
+		}
+}
 
+	IEnumerator NEWDIFF(){
+		yield return new WaitForSeconds (0.0f);
+			DirectoryInfo directoryInffo = new DirectoryInfo(Application.persistentDataPath+"/"+changedifimage.currentsong);
+			//print("Streaming Assets Path: " + directoryInfo);
+			FileInfo[] aFiles = directoryInffo.GetFiles("*.json");
+			foreach (FileInfo filee in aFiles) {
+				if (filee.Name.Contains (changedifimage.ENHE)) {	
+					StartCoroutine ("LoadChartFile", filee);
 				}
 			}
-
 		}
-	}
 	// Use this for initialization
 	void Start () {
 		//Deserialize at the start
-		StartCoroutine(waittostart());
+
 		StartCoroutine (Chart_ing ());
 		if (GM.currentSpeed == 4f) {
 			speed = speed4;
@@ -246,10 +270,47 @@ public class ExampleLoadingScript : MonoBehaviour {
 			//5
 			ndresult= File.ReadAllText(nameFilePath);
 			//MyFile =chartFile.Name;
-			print (ndresult);
+			//print (ndresult);
 
+			StartCoroutine(waittostart());
 
+		}
+	}
 
+	IEnumerator LoadChartFile (FileInfo charttFile) 
+	{
+
+		yield return new WaitForSeconds (0.0f);
+		//1
+		if (charttFile.Name.Contains("meta"))
+		{
+			yield break;
+		}
+		//2
+		else {
+			string chartFileWithoutExtension = Path.GetFileNameWithoutExtension(charttFile.ToString());
+			string[] nameNameData = chartFileWithoutExtension.Split(" "[0]);
+			//3
+			string tempoSongName = "";
+			int i = 0;
+			foreach (string stringFromFileName in nameNameData)
+			{
+				if (i != 0)
+				{
+					tempoSongName = tempoSongName + stringFromFileName + " ";
+				}
+				i++;
+			}
+			//4
+			string wwwnnameFilePath = "file://" + charttFile.FullName.ToString();
+			string nnameFilePath = charttFile.FullName.ToString ();
+			WWW www = new WWW(wwwnnameFilePath);
+			yield return www;
+			//5
+			ndresult= File.ReadAllText(nnameFilePath);
+			//MyFile =chartFile.Name;
+			//print (ndresult);
+			StartCoroutine(waittostart());
 		}
 	}
 
@@ -267,6 +328,74 @@ public class ExampleLoadingScript : MonoBehaviour {
 		else { return true; }
 	}
 
+	IEnumerator CNNS(D_Note note){
+		if (note._time > 2.102343f) {
+			yield return new WaitForSeconds ((float)(note._time - 2.1388116f));
+			//GameObject note_ = Object.Instantiate (ClickNote_NoSound_prefab, new Vector3 ((float)note.pos, (2.128756f*SPEED), -3.556f), Quaternion.Euler (0, 0, 0));
+			//for knowing
+			GameObject note_= ObjectPooler.SharedInstance.GetPooledObject("NoteP");
+			if (note_ != null) {
+				note_.name = "Note ID: " + note.id_;
+				//set size
+				note_.transform.localScale = new Vector3 ((float)note.size / 2, 0.6275f, 0.2f);
+				note_.transform.position = new Vector3 ((float)note.pos, (2.128756f * SPEED), -3.556f);
+				note_.transform.SetParent (transform);
+				note_.SetActive (true);
+			}
+		} else {
+
+			GameObject note_ = Object.Instantiate (ClickNote_NoSound_prefab, new Vector3 ((float)note.pos, (float)(note._time * SPEED), -3.556f), Quaternion.Euler (0, 0, 0));
+			//for knowing
+			note_.name = "Note ID: " + note.id_;
+			//set size
+			note_.transform.localScale = new Vector3 ((float)note.size / 2, 0.6275f, 0.2f);
+			note_.transform.SetParent (transform);
+		}
+	}
+
+	IEnumerator CNS(D_Note note){
+		if (note._time > 2.102343f) {
+			yield return new WaitForSeconds ((float)(note._time - 2.1388116f));
+			//GameObject note_ = Object.Instantiate (ClickNote_Sound_prefab, new Vector3 ((float)note.pos, (2.128756f*SPEED), -3.556f), Quaternion.Euler (0, 0, 0));
+			//for knowing
+			GameObject note_= ObjectPooler.SharedInstance.GetPooledObject("Note");
+			if (note_ != null) {
+				note_.name = "Note ID: " + note.id_;
+				//set size
+				note_.transform.localScale = new Vector3 ((float)note.size / 2, 0.6275f, 0.2f);
+				note_.transform.position = new Vector3 ((float)note.pos, (2.128756f * SPEED), -3.556f);
+				note_.transform.SetParent (transform);
+				note_.SetActive (true);
+			}
+		} else {
+			GameObject note_ = Object.Instantiate (ClickNote_Sound_prefab, new Vector3 ((float)note.pos, (float)(note._time * SPEED), -3.556f), Quaternion.Euler (0, 0, 0));
+			//for knowing
+			note_.name = "Note ID: " + note.id_;
+			//set size
+			note_.transform.localScale = new Vector3 ((float)note.size / 2, 0.6275f, 0.2f);
+			note_.transform.SetParent (transform);
+		}
+	}
+	IEnumerator SN(D_Note note){
+		if (note._time > 2.102343f) {
+			yield return new WaitForSeconds ((float)(note._time - 2.1388116f));
+			//GameObject note_ = Object.Instantiate (SlideNote_prefab, new Vector3 ((float)note.pos, (2.128756f*SPEED), -3.556f), Quaternion.Euler (0, 0, 0));
+			GameObject note_= ObjectPooler.SharedInstance.GetPooledObject("slideynote");
+			if (note_ != null) {
+				note_.name = "Slide Note ID: " + note.id_;
+				note_.transform.localScale = new Vector3 ((float)note.size / 2, 0.6275f, 0.2f);
+				note_.transform.position = new Vector3 ((float)note.pos, (2.128756f * SPEED), -3.556f);
+				note_.transform.SetParent (transform);
+				note_.SetActive (true);
+			}
+		} else {
+			GameObject note_ = Object.Instantiate (SlideNote_prefab, new Vector3 ((float)note.pos, (float)(note._time * SPEED), -3.556f), Quaternion.Euler (0, 0, 0));
+			note_.name = "Slide Note ID: " + note.id_;
+			note_.transform.localScale = new Vector3 ((float)note.size / 2, 0.6275f, 0.2f);
+			note_.transform.SetParent (transform);
+		}
+	}
+
 
 
 	// Update is called once per frame
@@ -275,3 +404,4 @@ public class ExampleLoadingScript : MonoBehaviour {
 	}
 
 }
+

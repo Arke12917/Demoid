@@ -311,6 +311,76 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &43383070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 43383072}
+  - component: {fileID: 43383071}
+  m_Layer: 0
+  m_Name: ObjectP00L
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &43383071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 43383070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192515092f3574391a383f0876a78d1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects:
+  - {fileID: 0}
+  itemsToPool:
+  - amountToPool: 0
+    objectToPool: {fileID: 1744392820094950, guid: fdb784513b422425191eb54f5acba8bc,
+      type: 2}
+    shouldExpand: 1
+  - amountToPool: 0
+    objectToPool: {fileID: 1956448936796204, guid: d9041db2abe23481d8590e78e322a39f,
+      type: 2}
+    shouldExpand: 1
+  - amountToPool: 0
+    objectToPool: {fileID: 1003045509336838, guid: 82bc719cf1ae641e28623aa77faa94dd,
+      type: 2}
+    shouldExpand: 1
+  - amountToPool: 28
+    objectToPool: {fileID: 1304905992342332, guid: 877158eb743194d7ea38a341d54be028,
+      type: 2}
+    shouldExpand: 1
+  - amountToPool: 15
+    objectToPool: {fileID: 1900399527320744, guid: 3e2bcab1902cb4059aa31ae388303089,
+      type: 2}
+    shouldExpand: 1
+  - amountToPool: 20
+    objectToPool: {fileID: 1696726426483444, guid: f0736373842b844528f67ba6924399e3,
+      type: 2}
+    shouldExpand: 1
+  objectToPool: {fileID: 0}
+  amountToPool: 0
+  shouldExpand: 0
+--- !u!4 &43383072
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 43383070}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 32.7, y: 5.42229, z: 12.726602}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &97999468
 GameObject:
   m_ObjectHideFlags: 0
@@ -3636,6 +3706,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 198596705538461348, guid: f0736373842b844528f67ba6924399e3,
+        type: 2}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114995480048475126, guid: f0736373842b844528f67ba6924399e3, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: f0736373842b844528f67ba6924399e3, type: 2}
@@ -4687,7 +4762,7 @@ MonoBehaviour:
   choose: {fileID: 807087615}
   SLA: {fileID: 1828067672560156, guid: 4169809fce9d547d983a2736a6d2f9a8, type: 2}
   Posee: {x: 0, y: 0, z: 0}
-  line: {fileID: 1029776325}
+  line: {fileID: 1745821787}
   Slidelinehit: {fileID: 1100269959}
   IgnoreIfStartedOverGui: 1
   MinimumAge: 0

@@ -36,6 +36,7 @@ public class GM : MonoBehaviour {
 
 	void Awake() {
 		Application.targetFrameRate = 120;
+	
 		if (Application.platform == RuntimePlatform.IPhonePlayer) {
 			Time.fixedDeltaTime = 0.01f;
 		} else if (Application.platform == RuntimePlatform.Android) {

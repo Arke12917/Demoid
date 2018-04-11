@@ -23,12 +23,16 @@ public class CanclickOG : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider other)
 	{
-		if (canclick == false) {
+		if (canclick == false&&gameObject.activeSelf==true) {
 			try {
 				StartCoroutine (checkclick ());
 			} catch {
 			}
 		} else {
 		}
+	}
+	void OnDisable() {
+		canclick = false;
+		startTime = 3.0f;
 	}
 }

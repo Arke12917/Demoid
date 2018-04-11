@@ -59,7 +59,10 @@ MonoBehaviour:
   PSS: {x: 0, y: 0, z: 0}
   mylayermask:
     serializedVersion: 2
-    m_Bits: 393216
+    m_Bits: 425984
+  CharmHit: {fileID: 0}
+  ClickHit: {fileID: 0}
+  failburst: {fileID: 0}
   line: {fileID: 0}
   Slidelinehit: {fileID: 0}
   NACT: {fileID: 0}

@@ -17,7 +17,7 @@ public class FailCollision : MonoBehaviour {
 	{
 
 		try{
-			Debug.Log ("Fail!!");
+			//Debug.Log ("Fail!!");
 			//Instantiate (failBurst, transform.position, failBurst.rotation);
 			GM.totalCombo = (GM.totalCombo-=GM.totalCombo);
 			notecontrol.AllCharming = " ";

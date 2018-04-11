@@ -117,6 +117,13 @@
      <Compile Include="Assets\LeanTouch\Scripts\LeanSelectable.cs" />
      <Compile Include="Assets\LeanTouch\Scripts\LeanSnapshot.cs" />
      <Compile Include="Assets\LeanTouch\Scripts\LeanTouch.cs" />
+     <Compile Include="Assets\loadingBar\scripts\Loading.cs" />
+     <Compile Include="Assets\loadingBar\scripts\loadingbar.cs" />
+     <Compile Include="Assets\loadingBar\scripts\loadingcolorful.cs" />
+     <Compile Include="Assets\loadingBar\scripts\loadingtext.cs" />
+     <Compile Include="Assets\loadingBar\scripts\rotatetotate.cs" />
+     <Compile Include="Assets\loadingBar\scripts\SimpleLoading.cs" />
+     <Compile Include="Assets\loadingBar\scripts\simplerotate.cs" />
      <Compile Include="Assets\loadoffset.cs" />
      <Compile Include="Assets\manageresult.cs" />
      <Compile Include="Assets\moveobj.cs" />
@@ -143,9 +150,11 @@
      <Compile Include="Assets\Scripts\deactivatediff.cs" />
      <Compile Include="Assets\Scripts\deletthis.cs" />
      <Compile Include="Assets\Scripts\DestroyParticles.cs" />
+     <Compile Include="Assets\Scripts\DONTCHARTER.cs" />
      <Compile Include="Assets\Scripts\DONTDESTRORYSP.cs" />
      <Compile Include="Assets\Scripts\dontdestroyspecial.cs" />
      <Compile Include="Assets\Scripts\dontdestroythis.cs" />
+     <Compile Include="Assets\Scripts\DONTILLUSTRATOR.cs" />
      <Compile Include="Assets\Scripts\Fading.cs" />
      <Compile Include="Assets\Scripts\FCController.cs" />
      <Compile Include="Assets\Scripts\FileManager.cs" />
@@ -168,6 +177,7 @@
      <Compile Include="Assets\Scripts\notecontrol.cs" />
      <Compile Include="Assets\Scripts\noteearlylate.cs" />
      <Compile Include="Assets\Scripts\noteonline.cs" />
+     <Compile Include="Assets\Scripts\ObjectPooler.cs" />
      <Compile Include="Assets\Scripts\onACFCenable.cs" />
      <Compile Include="Assets\Scripts\pagelist.cs" />
      <Compile Include="Assets\Scripts\Pause.cs" />
@@ -400,8 +410,13 @@
      <None Include="Assets\unity-ui-extensions\Shaders\UI Particle Blend.shader" />
      <None Include="Assets\Simple Scene Fade Load System\ReadMeFirst.txt" />
      <None Include="Assets\ADL-Plugins\changelog.txt" />
+     <None Include="Assets\StreamingAssets\Summer Night\Illustrator Summer Night.txt" />
+     <None Include="Assets\StreamingAssets\Astrolysis\song Astrolysis.txt" />
      <None Include="Assets\Demigiant\DOTween\DOTween50.xml" />
      <None Include="Assets\unity-ui-extensions\Shaders\UIMultiply.shader" />
+     <None Include="Assets\StreamingAssets\Astrolysis\diff Astrolysis.txt" />
+     <None Include="Assets\StreamingAssets\Astrolysis\DEMOID.txt" />
+     <None Include="Assets\StreamingAssets\Astrolysis\Illustrator Astrolysis.txt" />
      <None Include="Assets\unity-ui-extensions\Shaders\UIScreen.shader" />
      <None Include="Assets\unity-ui-extensions\Shaders\UI Particle MultiplyDouble.shader" />
  <Reference Include="UnityEngine.UI">

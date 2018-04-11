@@ -153,9 +153,13 @@ MonoBehaviour:
   songtoload: 
   pfb: {fileID: 0}
   difficulty: {fileID: 0}
+  Illustrator: {fileID: 0}
+  Charter: {fileID: 0}
   sc0re: {fileID: 0}
   AC: {fileID: 0}
   FC: {fileID: 0}
+  notfound: 0
+  notfoundd: 0
 --- !u!4 &88436892
 Transform:
   m_ObjectHideFlags: 0
@@ -508,10 +512,13 @@ MonoBehaviour:
   ActualName: {fileID: 0}
   m_Prefab: {fileID: 377180170}
   z_Prefab: {fileID: 0}
+  Ilprefab: {fileID: 0}
+  Chprefab: {fileID: 0}
   parentGameObject: {fileID: 1944550578}
   newelement: {fileID: 0}
   anothertransform: {fileID: 1944550579}
   aAnothertransform: {fileID: 0}
+  loadSCREEN: {fileID: 0}
   loadingScreen: {fileID: 528760534}
   pauseMenuCamera: {fileID: 0}
   pauseScreen: {fileID: 0}

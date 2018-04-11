@@ -9,6 +9,8 @@ public class SLC2 : MonoBehaviour {
 	bool nextstepp=true;
 	public Transform sucessBurst;
 	public Transform lateburst;
+	public GameObject ClickHit;
+	public GameObject CharmHit;
 	public float range = 0.65f;
 	public float range1 = 0.3f;
 	public bool collidertoucched = false;
@@ -39,8 +41,12 @@ public class SLC2 : MonoBehaviour {
 			if (hit.collider.gameObject.tag == "slideynote") {
 				if (collidertoucched == false) {
 					hit.collider.gameObject.SetActive (false);
-					Debug.Log ("Hit!!");
-					Instantiate (lateburst, transform.position, lateburst.rotation);
+					//Debug.Log ("Hit!!");
+					ClickHit=ObjectPooler.SharedInstance.GetPooledObject("ClickHit");
+					ClickHit.transform.position = transform.position;
+					ClickHit.transform.rotation = Quaternion.Euler(-90,0,0);
+					ClickHit.SetActive(true);
+					//Instantiate (lateburst, transform.position, lateburst.rotation);
 					GM.totalCombo += 1;
 					notecontrol.AllCharming = " ";
 					if (GM.highestcombo <= GM.totalCombo) {
@@ -69,8 +75,12 @@ public class SLC2 : MonoBehaviour {
 				}
 				else if (collidertoucched == false) {
 					hit1.collider.gameObject.SetActive (false);
-					Debug.Log ("Hit!!");
-					Instantiate (lateburst, transform.position, lateburst.rotation);
+					//Debug.Log ("Hit!!");
+					ClickHit=ObjectPooler.SharedInstance.GetPooledObject("ClickHit");
+					ClickHit.transform.position = transform.position;
+					ClickHit.transform.rotation = Quaternion.Euler(-90,0,0);
+					ClickHit.SetActive(true);
+					//Instantiate (lateburst, transform.position, lateburst.rotation);
 					GM.totalCombo += 1;
 					notecontrol.AllCharming = " ";
 					if (GM.highestcombo <= GM.totalCombo) {
@@ -91,8 +101,12 @@ public class SLC2 : MonoBehaviour {
 				if (collidertoucched == true) {
 				} else if (collidertoucched == false) {
 					hit2.collider.gameObject.SetActive (false);
-					Debug.Log ("Hit!!");
-					Instantiate (lateburst, transform.position, lateburst.rotation);
+					//Debug.Log ("Hit!!");
+					ClickHit=ObjectPooler.SharedInstance.GetPooledObject("ClickHit");
+					ClickHit.transform.position = transform.position;
+					ClickHit.transform.rotation = Quaternion.Euler(-90,0,0);
+					ClickHit.SetActive(true);
+					//Instantiate (lateburst, transform.position, lateburst.rotation);
 					GM.totalCombo += 1;
 					notecontrol.AllCharming = " ";
 					if (GM.highestcombo <= GM.totalCombo) {
@@ -111,7 +125,7 @@ public class SLC2 : MonoBehaviour {
 			yield return new WaitUntil (GameObject.FindGameObjectWithTag ("mainchrt").GetComponent<ExampleLoadingScript> ().readytoplaymusic);
 			charmingintt = 100.0f / GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().exChartcombo;
 			normintt = charmingintt / 2f;
-			Debug.Log (normintt);
+			//Debug.Log (normintt);
 		}
 	}
 	void OnTriggerEnter(Collider other)
@@ -119,8 +133,12 @@ public class SLC2 : MonoBehaviour {
 		if (other.gameObject.tag == "slideynote") 
 		{
 			collidertoucched = true;
-			Debug.Log ("Hit!!");
-			Instantiate (sucessBurst, transform.position, sucessBurst.rotation);
+			//Debug.Log ("Hit!!");
+			CharmHit=ObjectPooler.SharedInstance.GetPooledObject("CharmHit");
+			CharmHit.transform.position = transform.position;
+			CharmHit.transform.rotation = Quaternion.Euler(-90,0,0);
+			CharmHit.SetActive(true);
+			//Instantiate (sucessBurst, transform.position, sucessBurst.rotation);
 			GM.totalCombo += 1;
 			GM.highestcharmingcount += 1;
 			if (GM.highestcombo <= GM.totalCombo) {

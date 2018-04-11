@@ -116,7 +116,7 @@ namespace Lean.Touch
 			string nameOfLayer = "TouchInput";
 			//LayerMask layer =  ~(1 << LayerMask.NameToLayer(nameOfLayer )); 
 			if (Physics.Raycast (TR.origin, TR.direction, out hit, Mathf.Infinity)) {
-				if (hit.collider.gameObject.tag == "Note") {
+				if (hit.collider.gameObject.tag == "Note"||hit.collider.gameObject.tag == "NoteP") {
 
 					//Instantiate (SLA, new Vector3 (hit.point.x, line.gameObject.transform.position.y, Slidelinehit.gameObject.transform.position.z), Quaternion.identity);
 				} else {
@@ -215,7 +215,7 @@ namespace Lean.Touch
 							}
 						}
 					} else if (ischeating == true) {
-						Destroy(finger.slidey);
+						//Destroy(finger.slidey);
 							//ischeating = false;
 						}
 						if (Instances [0] == this) {
@@ -246,7 +246,8 @@ namespace Lean.Touch
 	
 			// Try and find the link for this finger
 			var link = FindLink(finger);
-			Destroy(finger.slidey);
+			//Destroy(finger.slidey);
+			StartCoroutine(detroy(finger));
 			// Link exists?
 			if (link != null)
 			{
@@ -293,6 +294,10 @@ namespace Lean.Touch
 			}
 
 			return null;
+		}
+		public IEnumerator detroy(LeanFinger finger){
+			yield return new WaitForSeconds(0.1f);
+			Destroy(finger.slidey);
 		}
 	}
 }

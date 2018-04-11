@@ -14,13 +14,10 @@ public class title : MonoBehaviour {
 	public Color loadToColor = Color.black;
 	public static bool readytoload = true;
 
-	void Update ()
+	public void clicked()
 	{
-		if (Input.GetMouseButton (0)) {
-			if (readytoload) {
-				OnStartGame ();
-			}
-		}
+		
+		OnStartGame ();
 		
 	}
 	IEnumerator Fading()

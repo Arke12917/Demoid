@@ -7,13 +7,16 @@ public class SETSELECTIONACTIVE : MonoBehaviour {
 
 	public GameObject inactiveObject;
 	public GameObject creds;
+	public GameObject tutorial;
 	public Transform holdempty;
 	public GameObject butA;
 	public GameObject butB;
 	public GameObject butC;
+	public bool tutorialiscomplete=false;
 	// Use this for initialization
 	void Awake () {
 		DontDestroyOnLoad(creds);
+		tutorial.SetActive (false);
 		creds.SetActive (false);
 		butA.SetActive (false);
 		butB.SetActive (false);
@@ -32,10 +35,22 @@ public class SETSELECTIONACTIVE : MonoBehaviour {
 
 	void Start(){
 		StartCoroutine (LevelWasLoaded());
+		ZPlayerPrefs.Initialize("what'sYourName", "salt12issalt");
+		if (ZPlayerPrefs.HasKey ("Tut")) {
+			tutorialiscomplete = true;
+		} else {
+			ZPlayerPrefs.SetFloat("Tut", 1);
+			tutorialiscomplete = false;
+			ZPlayerPrefs.Save ();
+		}
 	}
 
 	void OnLevelWasLoaded(int level) {
 		if (level == 1) {
+			if (tutorialiscomplete = false) {
+				tutorial.SetActive (true);
+				tutorialiscomplete = true;
+			}
 			creds.SetActive (false);
 			butA.SetActive (true);
 			butB.SetActive (true);

@@ -44,10 +44,15 @@ public class GameManager : MonoBehaviour
 	public Text ActualName;
 	public GameObject m_Prefab;
 	public GameObject z_Prefab;
+	public GameObject Ilprefab;
+	public GameObject Chprefab;
 	public GameObject parentGameObject;
 	public GameObject newelement;
 	public Transform anothertransform;
 	public Transform aAnothertransform;
+	public static int counter;
+	public GameObject loadSCREEN;
+	private string cht;
 
     [Header("Game UI")]
     public GameObject loadingScreen;
@@ -62,6 +67,8 @@ public class GameManager : MonoBehaviour
 	public static songnamechange s0ng;
 	public static int ccount = -1;
 	public static int rcount = -1;
+	public static int Dcount= -1;
+	public static int ILcount = -1;
 
 
     [Space]
@@ -73,6 +80,7 @@ public class GameManager : MonoBehaviour
     public string formattedTime;
 	private string log;
 		private int zres=0;
+		private int zret=0;
 		private int[] progress = new int[1];
 
 		//individual file progress (in bytes)
@@ -122,7 +130,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
 			if (Directory.Exists (Application.streamingAssetsPath + "/Summer Night")) {
-				print ("SN is here!");
+				//print ("SN is here!");
 				if (Directory.Exists (Application.persistentDataPath + "/Summer Night")) {
 					#if UNITY_EDITOR
 					//Directory.Delete(Application.persistentDataPath + "/Summer Night");
@@ -135,14 +143,14 @@ public class GameManager : MonoBehaviour
 				}
 				#if UNITY_EDITOR
 				DirectoryInfo directoryII = new DirectoryInfo (Application.streamingAssetsPath);
-				print ("Streaming Assets Path: " + Application.streamingAssetsPath);
+				//print ("Streaming Assets Path: " + Application.streamingAssetsPath);
 				DirectoryInfo[] Filee = directoryII.GetDirectories ("*");
 				foreach (DirectoryInfo directory in Filee) {
 					var toPath = directory + "/" + Path.GetFileName ("DEMOID.txt");
-					print (toPath);
+					//print (toPath);
 					if (File.Exists (toPath)) {
-						print ("SN 1 here!");
-						print (directory.FullName);
+						//print ("SN 1 here!");
+						//print (directory.FullName);
 						if (Directory.Exists (Application.persistentDataPath + "/" + "Summer Night")) {
 						} else {
 							DirectoryCopy (directory.FullName, Application.persistentDataPath + "/" + "Summer Night", true);
@@ -156,17 +164,17 @@ public class GameManager : MonoBehaviour
 				#endif
 			}
 				if (Application.platform == RuntimePlatform.IPhonePlayer) {
-					print ("/private" + Application.streamingAssetsPath + "/" + "Summer Night/");
-					print ("/private" + Application.persistentDataPath + "/Summer Night/");
+					//print ("/private" + Application.streamingAssetsPath + "/" + "Summer Night/");
+					//print ("/private" + Application.persistentDataPath + "/Summer Night/");
 					DirectoryInfo directoryI = new DirectoryInfo (Application.streamingAssetsPath);
-					print ("Streaming Assets Path: " + Application.streamingAssetsPath);
+					//print ("Streaming Assets Path: " + Application.streamingAssetsPath);
 					DirectoryInfo[] Filess = directoryI.GetDirectories ("*");
 					foreach (DirectoryInfo directory in Filess) {
 						var toPath = directory + "/" + Path.GetFileName ("DEMOID.txt");
-						print (toPath);
+						//print (toPath);
 						if (File.Exists (toPath)) {
-							print ("SN 1 here!");
-							print (directory.FullName);
+							//print ("SN 1 here!");
+							//print (directory.FullName);
 							if (Directory.Exists (Application.persistentDataPath + "/" + "Summer Night")) {
 							} else {
 								DirectoryCopy (directory.FullName, Application.persistentDataPath + "/" + "Summer Night", true);
@@ -201,18 +209,97 @@ public class GameManager : MonoBehaviour
 					}
 				}
 
+			if (Directory.Exists (Application.streamingAssetsPath + "/Astrolysis")) {
+				//print ("SN is here!");
+				if (Directory.Exists (Application.persistentDataPath + "/Astrolysis")) {
+					#if UNITY_EDITOR
+					//Directory.Delete(Application.persistentDataPath + "/Summer Night");
+					#endif
+					if (Application.platform == RuntimePlatform.IPhonePlayer) {
+						//System.IO.Directory.Delete("/private" + Application.persistentDataPath+"/"+"Summer Night");
+						//File.Delete ("/private"+file.ToString());
+					}
+
+				}
+				#if UNITY_EDITOR
+				DirectoryInfo directoryIII = new DirectoryInfo (Application.streamingAssetsPath);
+				//print ("Streaming Assets Path: " + Application.streamingAssetsPath);
+				DirectoryInfo[] Fileee = directoryIII.GetDirectories ("*");
+				foreach (DirectoryInfo directoryy in Fileee) {
+					var toPath = directoryy + "/" + Path.GetFileName ("DEMOID.txt");
+					//print (toPath);
+					if (File.Exists (toPath)) {
+						//print ("SN 1 here!");
+						//print (directory.FullName);
+						if (Directory.Exists (Application.persistentDataPath + "/" + "Astrolysis")) {
+						} else {
+							DirectoryCopy (directoryy.FullName, Application.persistentDataPath + "/" + "Astrolysis", true);
+						}
+
+					}
+					//System.IO.Directory.Move("/private"+Application.streamingAssetsPath+"/"+"Summer Night/","/private"+Application.persistentDataPath+"/Summer Night/");
+					//File.Delete ("/private"+file.ToString());
+				}
+
+				#endif
+			}
+			if (Application.platform == RuntimePlatform.IPhonePlayer) {
+				//print ("/private" + Application.streamingAssetsPath + "/" + "Summer Night/");
+				//print ("/private" + Application.persistentDataPath + "/Summer Night/");
+				DirectoryInfo directoryZ = new DirectoryInfo (Application.streamingAssetsPath);
+				//print ("Streaming Assets Path: " + Application.streamingAssetsPath);
+				DirectoryInfo[] Filesz = directoryZ.GetDirectories ("*");
+				foreach (DirectoryInfo directorz in Filesz) {
+					var toPath = directorz + "/" + Path.GetFileName ("DEMOID.txt");
+					//print (toPath);
+					if (File.Exists (toPath)) {
+						//print ("SN 1 here!");
+						//print (directory.FullName);
+						if (Directory.Exists (Application.persistentDataPath + "/" + "Astrolysis")) {
+						} else {
+							DirectoryCopy (directorz.FullName, Application.persistentDataPath + "/" + "Astrolysis", true);
+						}
+
+					}
+					//System.IO.Directory.Move("/private"+Application.streamingAssetsPath+"/"+"Summer Night/","/private"+Application.persistentDataPath+"/Summer Night/");
+					//File.Delete ("/private"+file.ToString());
+				}
+
+			} else if (Application.platform == RuntimePlatform.Android) {
+				string ppath = Application.persistentDataPath;
+				FileManager.RereadFile ("Astrolysis.zip");
+				DirectoryInfo directoryZnfo = new DirectoryInfo (Application.persistentDataPath);
+				print ("Streaming Assets Path: " + Application.persistentDataPath);
+				FileInfo[] allFilzs = directoryZnfo.GetFiles ("*.zip");
+				foreach (FileInfo filq in allFilzs) {
+					var fileBuffer = File.ReadAllBytes (Application.persistentDataPath + "/" + filq.Name);
+
+					plog ("Validate: " + lzip.validateFile (null, fileBuffer).ToString ());
+
+
+					//decompress the downloaded file
+					zres = lzip.decompress_File (null, ppath + "/", progress, fileBuffer, progress2);
+					plog ("decompress: " + zres.ToString ());
+
+					//yield return new WaitForSecondsRealtime (1.0f);
+					if (Application.platform == RuntimePlatform.Android) {
+						//System.IO.File.Delete(Application.persistentDataPath + "/" + file.Name);
+					}
+
+				}
+			}
 			
 			DirectoryInfo directoryInfoo = new DirectoryInfo(Application.persistentDataPath);
-			print("Streaming Assets Path: " + Application.persistentDataPath);
+			//print("Streaming Assets Path: " + Application.persistentDataPath);
 			DirectoryInfo[] allFiless = directoryInfoo.GetDirectories("*");
 			foreach (DirectoryInfo directory in allFiless) {
 				var toPath =  directory + "/" + Path.GetFileName ("DEMOID.txt");
-				print (toPath);
+				//print (toPath);
 				if (File.Exists (toPath)) {
-					print ("YEAAAAAHHHDHSDHASHDSAHDAHDSAHD");
+					//print ("YEAAAAAHHHDHSDHASHDSAHDAHDSAHD");
 				}
 					DirectoryInfo directoryInfo = new DirectoryInfo(directory+"/");
-					print("Streaming Assets Path: " + directoryInfo);
+					//print("Streaming Assets Path: " + directoryInfo);
 					FileInfo[] allFiles = directoryInfo.GetFiles("*.*");
 					foreach (FileInfo file in allFiles) {
 						if (file.Name.Contains ("song")) {
@@ -223,18 +310,30 @@ public class GameManager : MonoBehaviour
 							StartCoroutine ("LoadBackgroundMusic", file);
 						} else if (file.Name.Contains ("diff")) {
 							StartCoroutine ("loaddifficulty", file);
-						}
-					}
-				
+					} else if (file.Name.Contains ("Illustrator")) {
+					StartCoroutine ("loadIllustrator", file);
+				}
 			}
+				
+	}
 	
         loadingScreen.SetActive(true);
         Time.timeScale = 0.0f;
         StartCoroutine("RemoveLoadingScreen");
 		newelement=GameObject.Find ("Element 0");
-		print("I found it"+gameObject.name);
+		//print("I found it"+gameObject.name);
+		
+		
+		
+			StartCoroutine (heheboi ());
 		title.readytoload = true;
+		
+		
     }
+		public static bool desfinished(){
+			if(counter==0){ return false; }
+			else { return true; }
+		}
 
 	IEnumerator loadnames(FileInfo nameFile)
 	{
@@ -272,6 +371,25 @@ public class GameManager : MonoBehaviour
 			//go.transform.parent = GameObject.Find("Content").transform;
 			go.transform.SetParent(anothertransform, false);
 			go.name = m_Prefab.name;
+				string nameFilePath = nameFile.FullName.ToString ();
+				using (StreamReader readerr = new StreamReader (nameFilePath)) {
+					  
+						for( int q = 0; q < 2; ++q )
+						{
+							cht= readerr.ReadLine();
+						}
+						//good.GetComponent<Text> ().text = reader.ReadLine ();
+
+					if (cht == null) {
+					} else {
+						GameObject good = (Instantiate (Chprefab, transform.position, Quaternion.identity) as GameObject);
+						//go.transform.parent = GameObject.Find("Content").transform;
+						good.transform.SetParent (aAnothertransform, false);
+						good.name = cht;
+						//MyFile =chartFile.Name;
+						print (nameFile.Name);
+					}
+				}
 	}						
 }
 		IEnumerator loaddifficulty(FileInfo diffFile)
@@ -311,7 +429,55 @@ public class GameManager : MonoBehaviour
 				goo.transform.SetParent(aAnothertransform, false);
 				goo.name = File.ReadAllText(diffFilePath);
 				//MyFile =chartFile.Name;
-				print (goo.name);
+				//print (goo.name);
+			}						
+		}
+
+		IEnumerator loadIllustrator(FileInfo IllustratorFile)
+		{
+			yield return new WaitForSeconds (0.0f);
+			//1
+			if (IllustratorFile.Name.Contains("meta"))
+			{
+				yield break;
+			}
+			//2
+			else
+			{
+				string IllustratorFileWithoutExtension = Path.GetFileNameWithoutExtension(IllustratorFile.ToString());
+				string[] IllustratorNameData = IllustratorFileWithoutExtension.Split(" "[0]);
+				//3
+				string tempooSongName = "";
+				int i = 0;
+				foreach (string stringFromFileName in IllustratorNameData)
+				{
+					if (i != 0)
+					{
+						tempooSongName = tempooSongName + stringFromFileName + " ";
+					}
+					i++;
+				}
+				//4
+				string wwwdiffFilePath = "file://" + IllustratorFile.FullName.ToString();
+				WWW www = new WWW(wwwdiffFilePath);
+				yield return www;
+				//5
+				ILcount += 1;
+				Ilprefab.name = tempooSongName;
+				string diffFilePath = IllustratorFile.FullName.ToString ();
+				GameObject good = (Instantiate (Ilprefab, transform.position, Quaternion.identity) as GameObject);
+				//go.transform.parent = GameObject.Find("Content").transform;
+				good.transform.SetParent(aAnothertransform, false);
+				//good.name = File.ReadAllText(diffFilePath);
+				using (StreamReader reader = new StreamReader(diffFilePath))
+				{  
+					for( int q = 0; q < 2; ++q )
+					{
+						good.name= reader.ReadLine();
+					}
+					//good.GetComponent<Text> ().text = reader.ReadLine ();
+				}
+				print (IllustratorFile.Name);
 			}						
 		}
 
@@ -351,6 +517,28 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("MainScene"); 
         Time.timeScale = 1.0f;
     }
+		IEnumerator heheboi(){
+			yield return new WaitForSeconds (3.0f);
+			foreach (GameObject namp in GameObject.FindGameObjectsWithTag("listedSN")) {
+				if (namp.GetComponent<songnamechange> ().thispagelol == -1)
+					Destroy (namp);
+			}
+			counter=1;
+			yield return new WaitForSeconds (5.0f);
+			print ("k my boi");
+			foreach (GameObject name in GameObject.FindGameObjectsWithTag("Illustrator")) {
+				if (name.gameObject.transform.parent.tag == "YOUNOOB") {
+					Destroy(name);
+				}
+			}
+			foreach (GameObject name in GameObject.FindGameObjectsWithTag("Charter")) {
+				if (name.gameObject.transform.parent.tag == "YOUNOOB") {
+					Destroy(name);
+				}
+			}
+			loadSCREEN.SetActive (false);
+
+		}
 
 
     public void StartNextLevel()

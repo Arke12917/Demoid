@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StartCredits : MonoBehaviour {
 	public GameObject Creds;
+
 	// Use this for initialization
 	void Awake () {
 		//GameObject.FindGameObjectWithTag ("Credits").SetActive (false);
@@ -20,6 +21,10 @@ public class StartCredits : MonoBehaviour {
 	}
 
 	public void close(){
+		Creds.SetActive (false);
+	}
+
+	public void OK(){
 		Creds.SetActive (false);
 	}
 }

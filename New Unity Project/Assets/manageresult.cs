@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using UnityEngine.UI.Extensions;
 
 public class manageresult : MonoBehaviour {
 
@@ -27,9 +28,9 @@ public class manageresult : MonoBehaviour {
 		}
 		#endif
 		#if UNITY_EDITOR
-		imagetype=".jpg";
+		imagetype = ".jpg";
 		#endif
-		ZPlayerPrefs.Initialize("what'sYourName", "salt12issalt");
+		ZPlayerPrefs.Initialize ("what'sYourName", "salt12issalt");
 		DirectoryInfo directoryInfoo = new DirectoryInfo (Application.persistentDataPath);
 		print ("Streaming Assets Path: " + Application.persistentDataPath);
 		DirectoryInfo[] allFiless = directoryInfoo.GetDirectories ("*");
@@ -50,32 +51,45 @@ public class manageresult : MonoBehaviour {
 			}
 
 		}
-		prefabs = GameObject.FindGameObjectsWithTag("YEABOI");
+		prefabs = GameObject.FindGameObjectsWithTag ("YEABOI");
 		foreach (GameObject goo in prefabs) {
 			Chartnm = goo.name;
 			GameObject.FindGameObjectWithTag ("NSN").GetComponent<Text> ().text = Chartnm;
 		}
 		if (GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().AllCharming == true) {
-			ALL.SetActive(true);
+			ALL.SetActive (true);
 		} else if (GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().FullCombo == true) {
-			FULL.SetActive(true);
+			FULL.SetActive (true);
 		}
 		GameObject.FindGameObjectWithTag ("RDTEXT").GetComponent<Text> ().text = GM.DIFNAM;
-		MAXCOMBO.text = GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().exChartcombo.ToString();
-		MAXCHARMING.text = GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().exChartcombo.ToString();
-		charmcount.text= GM.highestcharmingcount.ToString();
-		highcombo.text = GM.highestcombo.ToString();
-		FinalSc0re.text = GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().sc0re.ToString("F2")+"%";
-		if (ZPlayerPrefs.GetFloat (GameObject.FindGameObjectWithTag ("YEABOI").name) < GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().sc0re) {
-			ZPlayerPrefs.SetFloat (GameObject.FindGameObjectWithTag ("YEABOI").name, GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().sc0re);
-			Debug.Log("Get Value" + GameObject.FindGameObjectWithTag("YEABOI").name + ZPlayerPrefs.GetFloat(GameObject.FindGameObjectWithTag("YEABOI").name) + ", Encrypt: " + ZPlayerPrefs.GetRowString(GameObject.FindGameObjectWithTag("YEABOI").name));
+		MAXCOMBO.text = GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().exChartcombo.ToString ();
+		MAXCHARMING.text = GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().exChartcombo.ToString ();
+		charmcount.text = GM.highestcharmingcount.ToString ();
+		highcombo.text = GM.highestcombo.ToString ();
+		FinalSc0re.text = GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().sc0re.ToString ("F2") + "%";
+		if (changedifimage.currentdiff == 0 || UpdateScrollSnap.defaultdiff == changedifimage.currentdiff) {
+			if (ZPlayerPrefs.GetFloat (GameObject.FindGameObjectWithTag ("YEABOI").name) < GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().sc0re) {
+				ZPlayerPrefs.SetFloat (GameObject.FindGameObjectWithTag ("YEABOI").name, GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().sc0re);
+				Debug.Log ("Get Value" + GameObject.FindGameObjectWithTag ("YEABOI").name + ZPlayerPrefs.GetFloat (GameObject.FindGameObjectWithTag ("YEABOI").name) + ", Encrypt: " + ZPlayerPrefs.GetRowString (GameObject.FindGameObjectWithTag ("YEABOI").name));
+			}
+			if (GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().AllCharming == true) {
+				ZPlayerPrefs.SetFloat (GameObject.FindGameObjectWithTag ("YEABOI").name + "AC", 1f);
+			} else if (GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().FullCombo == true) {
+				ZPlayerPrefs.SetFloat (GameObject.FindGameObjectWithTag ("YEABOI").name + "FC", 1f);
+			}
+			ZPlayerPrefs.Save ();
+		} else {
+			if (ZPlayerPrefs.GetFloat (GameObject.FindGameObjectWithTag ("YEABOI").name+ changedifimage.ENHE) < GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().sc0re) {
+				ZPlayerPrefs.SetFloat (GameObject.FindGameObjectWithTag ("YEABOI").name+ changedifimage.ENHE, GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().sc0re);
+				Debug.Log ("Get Value" + GameObject.FindGameObjectWithTag ("YEABOI").name+ changedifimage.ENHE + ZPlayerPrefs.GetFloat (GameObject.FindGameObjectWithTag ("YEABOI").name+ changedifimage.ENHE) + ", Encrypt: " + ZPlayerPrefs.GetRowString (GameObject.FindGameObjectWithTag ("YEABOI").name+ changedifimage.ENHE));
+			}
+			if (GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().AllCharming == true) {
+				ZPlayerPrefs.SetFloat (GameObject.FindGameObjectWithTag ("YEABOI").name+ changedifimage.ENHE + "AC", 1f);
+			} else if (GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().FullCombo == true) {
+				ZPlayerPrefs.SetFloat (GameObject.FindGameObjectWithTag ("YEABOI").name+ changedifimage.ENHE + "FC", 1f);
+			}
+			ZPlayerPrefs.Save ();
 		}
-		if (GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().AllCharming == true) {
-			ZPlayerPrefs.SetFloat (GameObject.FindGameObjectWithTag ("YEABOI").name + "AC", 1f);
-		} else if (GameObject.FindGameObjectWithTag ("Scoreobject").GetComponent<GM> ().FullCombo == true) {
-			ZPlayerPrefs.SetFloat (GameObject.FindGameObjectWithTag ("YEABOI").name + "FC", 1f);
-		}
-		ZPlayerPrefs.Save ();
 
 	}
 
